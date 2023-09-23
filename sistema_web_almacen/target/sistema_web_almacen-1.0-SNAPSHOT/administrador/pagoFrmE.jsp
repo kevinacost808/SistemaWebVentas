@@ -1,5 +1,5 @@
 
-<%@page import="Categoria.Categoria"%>
+<%@page import="Pago.Pago"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,21 +13,21 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Editar Categoria</h1>
                     <br>
-                    <% Categoria categoria = (Categoria)request.getSession().getAttribute("categoriaEditar");%>
-                    <form action="/sistema_web_almacen/SvCategoriaEditar" method="post">
+                    <% Pago pagoEditar = (Pago)request.getSession().getAttribute("pagoEditar");%>
+                    <form action="/sistema_web_almacen/SvPagoEditar" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Formulario de Categoria</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Formulario de Pago</h6>
                             </div>
                             <div class="card-body">
                                 <div class="form-group" hidden>
-                                    <label for="idCategoria">ID</label>
-                                    <input type="text" class="form-control" id="idCategoria" name="idCategoria" value="<%=categoria.getIdCategoria()%>" required>
+                                    <label for="idPago">ID</label>
+                                    <input type="text" class="form-control" id="idPago" name="idPago" value="<%=pagoEditar.getIdPago()%>" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nombreCategoria">Nombre</label>
-                                    <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" value="<%=categoria.getNombreCategoria()%>" required>
+                                    <label for="tipoPago">Tipo Pago</label>
+                                    <input type="text" class="form-control" id="tipoPago" name="tipoPago" value="<%=pagoEditar.getTipoPago()%>" required>
                                 </div>
                                 
                                 <div class="form-group">

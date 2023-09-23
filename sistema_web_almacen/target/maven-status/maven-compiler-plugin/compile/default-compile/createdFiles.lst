@@ -9,6 +9,7 @@ Proveedor\ProveedorJpa.class
 Proveedor\SvProveedorEditar.class
 Proveedor\SvProveedorEliminar.class
 Proveedor\SvProveedor.class
+Pago\SvPagoEliminar.class
 Excepcion\IllegalOrphanException.class
 Pago\PagoC.class
 Categoria\CategoriaJpa.class
@@ -18,6 +19,7 @@ Proveedor\Proveedor.class
 Excepcion\NonexistentEntityException.class
 Proveedor\ProveedorC.class
 Categoria\Categoria_.class
+Pago\SvPagoEditar.class
 Categoria\SvCategoria.class
 Categoria\CategoriaJpaController.class
 Categoria\Categoria.class

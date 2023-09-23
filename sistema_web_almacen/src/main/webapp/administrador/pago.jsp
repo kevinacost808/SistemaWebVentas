@@ -54,18 +54,18 @@
                                             <td name="idPago"><%=pago.getIdPago()%></td>
                                             <td name="tipoPago"><%=pago.getTipoPago()%></td>
                                             <td>
-                                                    <form name="editar" action="/sistema_web_almacen/SvCategoriaEditar" method="get">
+                                                    <form name="editar" action="/sistema_web_almacen/SvPagoEditar" method="get">
                                                         <button type="submit" class="btn btn-info btn-circle">
                                                             <i class="fas fa-info-circle"></i>
                                                         </button>     
-                                                        <input type="hidden" name="idCategoria" value="<%=pago.getIdPago()%>">
+                                                        <input type="hidden" name="idPago" value="<%=pago.getIdPago()%>">
                                                     </form>
 
-                                                    <form name="eliminar" action="/sistema_web_almacen/SvCategoriaEliminar" method="post">
+                                                    <form name="eliminar" action="/sistema_web_almacen/SvPagoEliminar" method="post">
                                                         <button type="submit" class="btn btn-danger btn-circle">
                                                             <i class="fas fa-trash"></i>
                                                         </button>     
-                                                        <input type="hidden" name="idCategoria" value="<%=pago.getIdPago()%>">
+                                                        <input type="hidden" name="idPago" value="<%=pago.getIdPago()%>">
                                                     </form>
                                             </td>
                                         </tr>
