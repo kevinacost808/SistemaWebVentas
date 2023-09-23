@@ -30,7 +30,7 @@ public class SvProveedorEditar extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("proveedorEditar",proveedorEditar);
         
-        response.sendRedirect("admin/frmProveedorE.jsp");
+        response.sendRedirect("almacen/frmProveedorE.jsp");
         
     }
 

@@ -35,7 +35,7 @@ public class SvCategoria extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaCategoria",listaCategoria);
         
-        response.sendRedirect("admin/categoria.jsp");
+        response.sendRedirect("almacen/categoria.jsp");
     }
 
     @Override
