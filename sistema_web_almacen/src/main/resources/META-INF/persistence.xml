@@ -5,6 +5,7 @@
     <class>Proveedor.Proveedor</class>
     <class>Categoria.Categoria</class>
     <class>Pago.Pago</class>
+    <class>Comprobante.Comprobante</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://b7tcpwdqokgejwjocikg-mysql.services.clever-cloud.com:3306/b7tcpwdqokgejwjocikg?serverTimezone=UTC"/>
