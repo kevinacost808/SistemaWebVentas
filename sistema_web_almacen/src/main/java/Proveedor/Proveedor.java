@@ -17,7 +17,7 @@ public class Proveedor implements Serializable {
     private String direccion;
     private String celular;
     private String correo;
-
+    
     public Proveedor() {
     }
 

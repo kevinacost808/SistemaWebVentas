@@ -6,7 +6,12 @@ Pago\PagoJpa.class
 Proveedor\ProveedorJpaController.class
 Pago\SvPago.class
 Proveedor\ProveedorJpa.class
+Comprobante\SvComprobanteEliminar.class
+Comprobante\Comprobante.class
 Proveedor\SvProveedorEditar.class
+Comprobante\SvComprobante.class
+Comprobante\ComprobanteJpaController.class
+Comprobante\SvComprobanteEditar.class
 Proveedor\SvProveedorEliminar.class
 Proveedor\SvProveedor.class
 Pago\SvPagoEliminar.class
@@ -19,9 +24,12 @@ Proveedor\Proveedor.class
 Excepcion\NonexistentEntityException.class
 Proveedor\ProveedorC.class
 Categoria\Categoria_.class
+Comprobante\ComprobanteJpa.class
 Pago\SvPagoEditar.class
 Categoria\SvCategoria.class
+Comprobante\Comprobante_.class
 Categoria\CategoriaJpaController.class
 Categoria\Categoria.class
+Comprobante\ComprobanteC.class
 Pago\Pago.class
 Categoria\CategoriaC.class
