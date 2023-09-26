@@ -38,7 +38,8 @@ public class SvComprobante extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String tipoComprobante = request.getParameter("tipoComprobante");
+        String tipoC = request.getParameter("tipoComprobante");
+        String tipoComprobante = tipoC.toUpperCase();
         
         Comprobante comprobante = new Comprobante();
         comprobante.setTipoComprobante(tipoComprobante);

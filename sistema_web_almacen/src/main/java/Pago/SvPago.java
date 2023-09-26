@@ -37,7 +37,8 @@ public class SvPago extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String tipoPago = request.getParameter("tipoPago");
+        String tipoP = request.getParameter("tipoPago");
+        String tipoPago = tipoP.toUpperCase();
         
         Pago pago = new Pago();
         pago.setTipoPago(tipoPago);

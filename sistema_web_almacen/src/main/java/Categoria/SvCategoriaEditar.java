@@ -42,7 +42,8 @@ public class SvCategoriaEditar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
-        String nombreCategoria = request.getParameter("nombreCategoria");
+        String nombreC = request.getParameter("nombreCategoria");
+        String nombreCategoria = nombreC.toUpperCase();
         
         Categoria categoria = new Categoria();
         categoria.setIdCategoria(idCategoria);

@@ -1,5 +1,4 @@
 <%@page import="Pago.Pago"%>
-<%@page import="Categoria.Categoria"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,14 +31,12 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID Pago</th>
                                             <th>Tipo de pago</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID Pago</th>
                                             <th>Tipo de pago</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
@@ -51,7 +48,6 @@
                                             for(Pago pago: listaPago){
                                         %>
                                         <tr>
-                                            <td name="idPago"><%=pago.getIdPago()%></td>
                                             <td name="tipoPago"><%=pago.getTipoPago()%></td>
                                             <td>
                                                     <form name="editar" action="/sistema_web_almacen/SvPagoEditar" method="get">

@@ -38,9 +38,14 @@ public class SvProveedorEditar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idProveedor = Integer.parseInt(request.getParameter("idProveedor"));
-        String nombreProveedor = request.getParameter("nombreProveedor");
+        
+        String nombreP = request.getParameter("nombreProveedor");
+        String nombreProveedor = nombreP.toUpperCase();
+        
         String rucProveedor = request.getParameter("rucProveedor");
-        String direccion = request.getParameter("direccion");
+        String direcc = request.getParameter("direccion");
+        String direccion = direcc.toUpperCase();
+        
         String celular = request.getParameter("celular");
         String correo = request.getParameter("correo");
         

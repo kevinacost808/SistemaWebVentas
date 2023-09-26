@@ -43,7 +43,10 @@ public class SvPedidoProveedor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre = request.getParameter("nombre");
+        
+        String nomb = request.getParameter("nombre");
+        String nombre = nomb.toUpperCase();
+        
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         Float precioUnidad = Float.parseFloat(request.getParameter("precioUnidad"));
         String fechaPedidoStr = request.getParameter("fechaPedido");

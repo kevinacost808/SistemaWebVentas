@@ -40,7 +40,8 @@ public class SvPagoEditar extends HttpServlet {
             throws ServletException, IOException {
         
         int idPago = Integer.parseInt(request.getParameter("idPago"));
-        String tipoPago = request.getParameter("tipoPago");
+        String tipoP = request.getParameter("tipoPago");
+        String tipoPago = tipoP.toUpperCase();
         
         Pago pago = new Pago();
         pago.setIdPago(idPago);

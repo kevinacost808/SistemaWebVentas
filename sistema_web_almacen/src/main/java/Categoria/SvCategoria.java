@@ -42,8 +42,9 @@ public class SvCategoria extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombreCategoria = request.getParameter("nombreCategoria");
-        
+        String nombreC = request.getParameter("nombreCategoria");
+        String nombreCategoria = nombreC.toUpperCase();
+                
         Categoria categoria = new Categoria();
         categoria.setNombreCategoria(nombreCategoria);
         

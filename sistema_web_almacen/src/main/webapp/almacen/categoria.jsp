@@ -31,14 +31,12 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID Categoria</th>
                                             <th>Nombre Categoria</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID Categoria</th>
                                             <th>Nombre Categoria</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
@@ -50,7 +48,6 @@
                                             for(Categoria categoria: listaCategoria){
                                         %>
                                         <tr>
-                                            <td name="idCategoria"><%=categoria.getIdCategoria()%></td>
                                             <td name="nombreCategoria"><%=categoria.getNombreCategoria()%></td>
                                             <td>
                                                     <form name="editar" action="/sistema_web_almacen/SvCategoriaEditar" method="get">

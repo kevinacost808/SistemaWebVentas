@@ -42,7 +42,10 @@ public class SvPedidoProveedorEditar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idPedidoProveedor = Integer.parseInt(request.getParameter("idPedidoProveedor"));
-        String nombre = request.getParameter("nombre");
+        
+        String nomb = request.getParameter("nombre");
+        String nombre = nomb.toUpperCase();
+        
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
         Float precioUnidad = Float.parseFloat(request.getParameter("precioUnidad"));
         String fechaPedidoStr = request.getParameter("fechaPedido");

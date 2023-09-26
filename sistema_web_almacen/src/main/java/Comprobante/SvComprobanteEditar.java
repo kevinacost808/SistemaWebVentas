@@ -31,14 +31,15 @@ public class SvComprobanteEditar extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("comprobanteEditar", comprobanteEditar);
         
-        response.sendRedirect("administrador/ComprobanteFrmE.jsp");
+        response.sendRedirect("administrador/comprobanteFrmE.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idComprobante = Integer.parseInt(request.getParameter("idComprobante"));
-        String tipoComprobante = request.getParameter("tipoComprobante");
+        String tipoC = request.getParameter("tipoComprobante");
+        String tipoComprobante = tipoC.toUpperCase();
         
         Comprobante comprobante = new Comprobante();
         comprobante.setIdComprobante(idComprobante);

@@ -34,7 +34,6 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID Proveedor</th>
                                             <th>Nombre</th>
                                             <th>Ruc</th>
                                             <th>Direccion</th>
@@ -45,7 +44,6 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID Proveedor</th>
                                             <th>Nombre</th>
                                             <th>Ruc</th>
                                             <th>Direccion</th>
@@ -63,7 +61,6 @@
                                         %>
                                         
                                             <tr>
-                                                <td name="idProveedor"><%= proveedor.getIdProveedor()%></td>
                                                 <td name="nombreProveedor"><%= proveedor.getNombreProveedor()%></td>
                                                 <td name="rucProveedor"><%= proveedor.getRucProveedor()%></td>
                                                 <td name="direccion"><%= proveedor.getDireccion()%></td>

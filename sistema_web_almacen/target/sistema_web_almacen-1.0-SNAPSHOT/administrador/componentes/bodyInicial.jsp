@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Comprobante de pago -->
             <li class="nav-item">
-                <a class="nav-link" href="comprobante.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvComprobante">
                     <i class="fas fa-fw fa-store"></i>
                     <span>Comprobante de pago</span></a>
             </li>
