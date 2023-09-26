@@ -71,7 +71,7 @@
 
             <!-- Nav Item - Pedidos -->
             <li class="nav-item">
-                <a class="nav-link" href="pedidos.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvPedidoProveedor">
                     <i class="fas fa-fw fa-shopping-basket"></i>
                     <span>Pedidos</span></a>
             </li>

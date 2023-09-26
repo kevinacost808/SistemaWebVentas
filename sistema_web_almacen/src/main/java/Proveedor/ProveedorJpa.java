@@ -1,11 +1,9 @@
 package Proveedor;
 
-import Proveedor.ProveedorJpaController;
 import Excepcion.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import Proveedor.Proveedor;
 
 public class ProveedorJpa {
     

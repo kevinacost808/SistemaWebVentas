@@ -22,7 +22,7 @@ public class Proveedor implements Serializable {
     private String celular;
     private String correo;
     
-    @OneToMany(mappedBy = "idProveedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PedidoProveedor> pedidosProveedor;
     
     public Proveedor() {
