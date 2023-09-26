@@ -1,10 +1,14 @@
 package Proveedor;
 
+import PedidoProveedor.PedidoProveedor;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Proveedor implements Serializable {
@@ -18,16 +22,20 @@ public class Proveedor implements Serializable {
     private String celular;
     private String correo;
     
+    @OneToMany(mappedBy = "idProveedor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PedidoProveedor> pedidosProveedor;
+    
     public Proveedor() {
     }
 
-    public Proveedor(int idProveedor, String nombreProveedor, String rucProveedor, String direccion, String celular, String correo) {
+    public Proveedor(int idProveedor, String nombreProveedor, String rucProveedor, String direccion, String celular, String correo, List<PedidoProveedor> pedidosProveedor) {
         this.idProveedor = idProveedor;
         this.nombreProveedor = nombreProveedor;
         this.rucProveedor = rucProveedor;
         this.direccion = direccion;
         this.celular = celular;
         this.correo = correo;
+        this.pedidosProveedor = pedidosProveedor;
     }
 
     public int getIdProveedor() {
@@ -76,6 +84,14 @@ public class Proveedor implements Serializable {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public List<PedidoProveedor> getPedidosProveedor() {
+        return pedidosProveedor;
+    }
+
+    public void setPedidosProveedor(List<PedidoProveedor> pedidosProveedor) {
+        this.pedidosProveedor = pedidosProveedor;
     }
     
     
