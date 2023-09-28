@@ -1,3 +1,5 @@
+<%@page import="Cliente.Cliente"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
-                    <a href="formularios/agregar/frmCliente.jsp" class="btn btn-primary btn-icon-split">
+                    <a href="clienteFrm.jsp" class="btn btn-primary btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-flag"></i>
                         </span>
@@ -32,7 +34,8 @@
                                             <th>DNI</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
-                                            <th>Fecha Nacimiento</th>
+                                            <th>Celular</th>
+                                            <th>Correo</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </thead>
@@ -41,26 +44,42 @@
                                             <th>DNI</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
-                                            <th>Fecha Nacimiento</th>
+                                            <th>Celular</th>
+                                            <th>Correo</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        <%
+                                            List<Cliente> listaCliente = (List)request.getSession().getAttribute("listaCliente");
+                                            if(listaCliente==null){
+                                                
+                                            }else{
+                                            for(Cliente cliente: listaCliente){
+                                        %>
                                         <tr>
-                                            <td>75825936</td>
-                                            <td>Kevin Eddy</td>
-                                            <td>Acosta Gamarra</td>
-                                            <td>2004/09/02</td>
+                                            <td><%=cliente.getDni()%></td>
+                                            <td><%=cliente.getNombre()%></td>
+                                            <td><%=cliente.getApellido()%></td>
+                                            <td><%=cliente.getCelular()%></td>
+                                            <td><%=cliente.getCorreo()%></td>
                                             <td>
-                                                <a href="formularios/editar/frmClienteE.jsp" class="btn btn-info btn-circle">
-                                                    <i class="fas fa-info-circle"></i>
-                                                </a>
+                                                <form name="editar" action="/sistema_web_almacen/SvClienteEditar" method="get">
+                                                   <button type="submit" class="btn btn-info btn-circle">
+                                                       <i class="fas fa-info-circle"></i>
+                                                    </button>     
+                                                    <input type="hidden" name="idCliente" value="<%=cliente.getIdCliente()%>">
+                                                </form>
 
-                                                <button class="btn btn-danger btn-circle">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                                <form name="eliminar" action="/sistema_web_almacen/SvClienteEliminar" method="post">
+                                                   <button type="submit" class="btn btn-danger btn-circle">
+                                                        <i class="fas fa-trash"></i>
+                                                   </button>     
+                                                   <input type="hidden" name="idCliente" value="<%=cliente.getIdCliente()%>">
+                                                </form>
                                             </td>
                                         </tr>
+                                        <%  }}%>
                                     </tbody>
                                 </table>
                             </div>
