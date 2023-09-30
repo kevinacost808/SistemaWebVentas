@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.12.v20230209-rNA", date="2023-09-29T10:55:03")
+@Generated(value="EclipseLink-2.7.12.v20230209-rNA", date="2023-09-30T06:49:07")
 @StaticMetamodel(Cliente.class)
 public class Cliente_ { 
 

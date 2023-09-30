@@ -6,6 +6,7 @@ Proveedor\SvProveedorEditar.class
 PedidoProveedor\PedidoProveedorJpaController.class
 PedidoProveedor\PedidoProveedor.class
 PedidoProveedor\SvPedidoProveedorEliminar.class
+Cliente\SvClienteEliminar.class
 Comprobante\ComprobanteJpaController.class
 Comprobante\SvComprobanteEditar.class
 Proveedor\SvProveedorEliminar.class

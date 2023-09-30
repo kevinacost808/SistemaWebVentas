@@ -66,8 +66,7 @@ public class SvClienteDni extends HttpServlet {
                 
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("listaClienteDni",listaClienteDni);
-
-                System.out.println(listaClienteDni);
+                
                 response.sendRedirect("vendedor/clienteFrm.jsp");
             }
             
