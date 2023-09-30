@@ -31,7 +31,44 @@ public class SvClienteDni extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String dni = request.getParameter("dni");
+        String enlace = "https://dniruc.apisperu.com/api/v1/dni/"+dni
+                        + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9."
+                        + "eyJlbWFpbCI6ImtldmluYWNvc3Q4MDhAZ21haWwuY29tIn0."
+                        + "HRNB-1DSI-_yR2LKy7WuyWmdvJiBYa0hgVrRMdHkaE0";
+        try{
+            URL url = new URL(enlace);
+            URLConnection urlRequest = url.openConnection();
+            urlRequest.connect();
+
+            JsonParser jp = new JsonParser();
+            JsonElement root = jp.parse(new InputStreamReader((InputStream)urlRequest.getContent()));
+            
+            if(root.isJsonObject()){
+                JsonObject rootObj = root.getAsJsonObject();
+
+                String apellidoPaterno = rootObj.get("apellidoPaterno").getAsString();
+                String apellidoMaterno = rootObj.get("apellidoMaterno").getAsString();
+
+                String nombre = rootObj.get("nombres").getAsString();
+                String apellido = apellidoPaterno+" "+apellidoMaterno;
+                
+                List<String> listaClienteDniEditar = new ArrayList();
+                listaClienteDniEditar.add(dni);
+                listaClienteDniEditar.add(nombre);
+                listaClienteDniEditar.add(apellido);
+                
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("listaClienteDniEditar",listaClienteDniEditar);
+                
+                response.sendRedirect("vendedor/clienteFrmE.jsp");
+            }
+            
+            
+            
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }
 
     @Override
