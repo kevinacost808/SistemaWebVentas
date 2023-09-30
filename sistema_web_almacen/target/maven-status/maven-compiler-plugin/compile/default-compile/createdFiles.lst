@@ -16,6 +16,7 @@ Excepcion\NonexistentEntityException.class
 Proveedor\ProveedorC.class
 Comprobante\ComprobanteJpa.class
 Pago\SvPagoEditar.class
+Cliente\SvClienteDni.class
 Categoria\SvCategoria.class
 Cliente\SvCliente.class
 Comprobante\Comprobante_.class
