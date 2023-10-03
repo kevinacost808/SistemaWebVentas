@@ -36,7 +36,7 @@ public class SvProveedor extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaProveedores",listaProveedores);
         
-        response.sendRedirect("almacen/proveedores.jsp");
+        response.sendRedirect("almacen/proveedor.jsp");
     }
 
     @Override

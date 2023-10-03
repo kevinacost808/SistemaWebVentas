@@ -15,7 +15,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Proveedor</h1>
-                    <a href="frmProveedor.jsp" class="btn btn-primary btn-icon-split">
+                    <a href="proveedorFrm.jsp" class="btn btn-primary btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-flag"></i>
                         </span>
