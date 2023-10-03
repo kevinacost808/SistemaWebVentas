@@ -13,7 +13,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Categorias</h1>
-                    <a href="frmCategoria.jsp" class="btn btn-primary btn-icon-split">
+                    <a href="categoriaFrm.jsp" class="btn btn-primary btn-icon-split">
                         <span class="icon text-white-50">
                             <i class="fas fa-flag"></i>
                         </span>
