@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<%=cliente.getDni()%>">
+                        <input type="text" class="form-control" id="dni" name="dni" value="<%=cliente.getDni()%>" readonly>
                         <br>
                         <button id="cargarDni" type="submit" class="btn btn-info btn-circle">
                             <i class="fas fa-fw fa-search"></i>

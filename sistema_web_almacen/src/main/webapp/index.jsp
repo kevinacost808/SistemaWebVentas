@@ -64,7 +64,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="vendedor/index.jsp" class="btn btn-primary btn-user btn-block">
+                                        <a href="gerencia/index.jsp" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
                                         <hr>
