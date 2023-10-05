@@ -1,3 +1,4 @@
+<%@page import="Empresa.Empresa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,28 +19,32 @@
             </div>
             <br>
             
-            <form action="action">
+            <%
+                Empresa empresa = (Empresa)request.getSession().getAttribute("EmpresaEditar");
+            %>
+                    
+            <form action="/sistema_web_almacen/SvEmpresaEditar" method="post">
 
                 <div class="card-body">
                     <div class="form-group" hidden>
                         <label for="idEmpresa">ID</label>
-                        <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" required>
+                        <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="nombreEmpresa">Nombre</label>
-                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" placeholder="Ingrese el nombre de la empresa" required>
+                        <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" placeholder="Ingrese el nombre de la empresa" value="<%=empresa.getNombreEmpresa()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="rucEmpresa">RUC</label>
-                        <input type="text" class="form-control" id="rucEmpresa" name="rucEmpresa" placeholder="Ingrese el RUC de la empresa">
+                        <input type="text" class="form-control" id="rucEmpresa" name="rucEmpresa" placeholder="Ingrese el RUC de la empresa" value="<%=empresa.getRucEmpresa()%>">
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input type="email" class="p form-control" id="correo" name="correo" placeholder="Ingrese el correo" required>
+                        <input type="email" class="p form-control" id="correo" name="correo" placeholder="Ingrese el correo" value="<%=empresa.getCorreo()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="celular">Celular</label>
-                        <input type="text" class="p form-control" id="celular" name="celular" placeholder="Ingrese el celular" required>
+                        <input type="text" class="p form-control" id="celular" name="celular" placeholder="Ingrese el celular" value="<%=empresa.getCelular()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="fechaInicio">Fecha de Inicio</label>
@@ -49,8 +54,8 @@
                         <label for="fechaFin">Fecha de Fin</label>
                         <input type="date" class="p form-control" id="fechaFin" name="fechaFin" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">MODIFICAR</button>
-                    <a href="empresa.jsp" class="btn btn-danger">DESABILITAR</a>
+                    <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
+                    <a href="empresa.jsp" class="btn btn-warning">CANCELAR</a>
                 </div>
                 
             </form>  

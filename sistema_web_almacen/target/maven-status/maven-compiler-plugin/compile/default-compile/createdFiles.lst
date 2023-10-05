@@ -46,6 +46,7 @@ Comprobante\SvComprobante.class
 Cliente\Cliente.class
 Excepcion\IllegalOrphanException.class
 Empresa\Empresa_.class
+Empresa\SvEmpresaEditar.class
 Pago\PagoC.class
 PedidoProveedor\SvPedidoProveedor.class
 Categoria\SvCategoriaEliminar.class

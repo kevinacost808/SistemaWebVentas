@@ -35,24 +35,45 @@
                             for(Empresa empresa: listaEmpresa){
                         
                     %>
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                      <div class="card">
-                          <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title font-weight-bold"><%=empresa.getNombreEmpresa()%></h5>
-                          
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><%=empresa.getRucEmpresa()%></li>
-                            <li class="list-group-item"><%=empresa.getCorreo()%></li>
-                            <li class="list-group-item"><%=empresa.getCelular()%></li>
-                          </ul>
-                          <a href="empresaFrmE.jsp" class="btn btn-primary">CONFIGURACIÓN</a>
-                          <a href="#" class="btn btn-warning">HABILITAR</a>
+                    <div class="col-sm-6 mb-3 ">
+                        <div class="card">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title font-weight-bold"><%=empresa.getNombreEmpresa()%></h5>
+
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><%=empresa.getRucEmpresa()%></li>
+                                <li class="list-group-item"><%=empresa.getCorreo()%></li>
+                                <li class="list-group-item"><%=empresa.getCelular()%></li>
+                                <li class="list-group-item"><%=empresa.getFechaInicio()%></li>
+                                <li class="list-group-item"><%=empresa.getFechaFin()%></li>
+                              </ul>
+                            </div>
+                            <div class="p-4">  
+                                <div > 
+                                <form name="editar" action="/sistema_web_almacen/SvEmpresaSucursal" method="get">
+                                    <button type="submit" class="btn btn-outline-success">SUCURSALES</button>     
+                                    <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
+                                </form>
+                                </div>
+                                <div class="mt-4"> 
+                                <form name="editar" action="/sistema_web_almacen/SvEmpresaEditar" method="get">
+                                    <button type="submit" class="btn btn-outline-secondary">ACTUALIZAR</button>     
+                                    <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
+                                </form>
+                                </div>
+                                <div class="mt-4"> 
+                                <form name="eliminar" action="/sistema_web_almacen/SvEmpresaEliminar" method="post">
+                                    <button type="submit" class="btn btn-outline-info">HABILITAR</button>     
+                                   <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
+                                </form>
+                                </div>
+                            </div> 
+                            <div class="card-footer my-4">
+                              <small class="text-body-secondary">Last updated 3 mins ago</small>
+                            </div>
+                            
                         </div>
-                          <div class="card-footer">
-                            <small class="text-body-secondary">Last updated 3 mins ago</small>
-                          </div>
-                      </div>
                     </div> 
                     <%  }}%>
                 </div>
