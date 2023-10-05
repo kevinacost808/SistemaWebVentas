@@ -8,6 +8,7 @@
     <class>Comprobante.Comprobante</class>
     <class>PedidoProveedor.PedidoProveedor</class>
     <class>Cliente.Cliente</class>
+    <class>Empresa.Empresa</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://b7tcpwdqokgejwjocikg-mysql.services.clever-cloud.com:3306/b7tcpwdqokgejwjocikg?serverTimezone=UTC"/>
