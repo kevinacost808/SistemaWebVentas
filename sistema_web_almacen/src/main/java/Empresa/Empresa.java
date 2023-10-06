@@ -1,11 +1,15 @@
 package Empresa;
 
+import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,10 +30,13 @@ public class Empresa implements Serializable{
     private Date fechaInicio;
     private Date fechaFin;
 
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Sucursal> sucursal;
+    
     public Empresa() {
     }
 
-    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin) {
+    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin, List<Sucursal> sucursal) {
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.rucEmpresa = rucEmpresa;
@@ -37,6 +44,15 @@ public class Empresa implements Serializable{
         this.celular = celular;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.sucursal = sucursal;
+    }
+
+    public List<Sucursal> getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(List<Sucursal> sucursal) {
+        this.sucursal = sucursal;
     }
 
     public int getIdEmpresa() {
