@@ -1,3 +1,4 @@
+<%@page import="Empresa.EmpresaC"%>
 <%@page import="Empresa.Empresa"%>
 <%@page import="Sucursal.Sucursal"%>
 <%@page import="java.util.List"%>
@@ -10,8 +11,13 @@
 <!-- Begin Page Content -->
     <div class="container-fluid">
 
+        <%
+            int id = (int)request.getSession().getAttribute("idEmpresa");
+            EmpresaC empresaC = new EmpresaC();
+            Empresa empresa = empresaC.consultarEmpresaId(id);
+        %>
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">SUCURSAL </h1>   
+        <h1 class="h3 mb-2 text-gray-800">EMPRESA: <%=empresa.getNombreEmpresa()%></h1>   
         
         <a href="sucursalFrm.jsp" class="btn btn-primary btn-icon-split">
             <span class="icon text-white-50">

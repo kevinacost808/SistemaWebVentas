@@ -1,4 +1,5 @@
 Empresa\EmpresaJpa.class
+Empresa\SvEmpresaEliminar.class
 PedidoProveedor\PedidoProveedorJpa.class
 Empresa\EmpresaJpaController.class
 Categoria\SvCategoriaEditar.class

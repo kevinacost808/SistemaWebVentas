@@ -56,9 +56,17 @@
                     </div>
                     <button type="submit" class="btn btn-primary">ACTUALIZAR</button>
                     <a href="empresa.jsp" class="btn btn-warning">CANCELAR</a>
+                    
                 </div>
                 
             </form>  
+                    
+            <div class="p-4 "> 
+                <form name="eliminar" action="/sistema_web_almacen/SvEmpresaEliminar" method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>     
+                   <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
+                </form>
+            </div>
         </div>
         <br>
     </div>
