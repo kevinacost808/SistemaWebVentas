@@ -30,23 +30,52 @@ public class SvSucursal extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Sucursal> listaSucursal = new ArrayList<Sucursal>();
-        listaSucursal = sucursalC.consultarSucursal();
         
+        String idEmpresaStr = request.getParameter("idEmpresa");
+        int idEmpresa =0;
+        
+        // Verificar si idEmpresaStr no es nulo ni está vacío
+        if (idEmpresaStr != null && !idEmpresaStr.isEmpty()) {
+            try {
+                // Intentar convertir idEmpresaStr a un entero
+                idEmpresa = Integer.parseInt(idEmpresaStr);
+            } catch (NumberFormatException e) {
+                // Manejar la excepción si idEmpresaStr no es un número válido
+                System.out.println("idEmpresa no es un número válido.");
+            }
+        }else{
+            HttpSession sesion = request.getSession();
+            idEmpresa = (int) sesion.getAttribute("idEmpresa");
+        }
+        
+        List<Sucursal> sucursal = new ArrayList<Sucursal>();
+        sucursal = sucursalC.consultarSucursal();
+        
+        List<Sucursal> listaSucursal = new ArrayList<>();
+        
+        if (sucursal != null) {
+            // Itera a través de la lista para encontrar el elemento deseado
+            for (Sucursal s : sucursal) {    
+                Empresa empresa = s.getEmpresa();
+                if (empresa != null && empresa.getIdEmpresa() == idEmpresa) {
+                    listaSucursal.add(s);
+                }
+            }
+        }
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaSucursal", listaSucursal);
-        
         response.sendRedirect("gerencia/sucursal.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String nomb = request.getParameter("nombreSucursal");
         String nombreSucursal = nomb.toUpperCase();
         
         String direc = request.getParameter("direccionSucursal");
-        String direccionSucursal = nomb.toUpperCase();
+        String direccionSucursal = direc.toUpperCase();
         
         int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
         Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
@@ -58,7 +87,7 @@ public class SvSucursal extends HttpServlet {
         
         sucursalC.agregarSucursal(sucursal);
         
-        response.sendRedirect("SvPedidoProveedor");
+        response.sendRedirect("SvSucursal");
     }
 
     @Override
