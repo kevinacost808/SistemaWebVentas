@@ -1,5 +1,6 @@
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvCliente.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\PagoJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SvSucursalEditar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEditar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\SvComprobanteEliminar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\SvPagoEditar.java
@@ -11,6 +12,7 @@ C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorC.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\CategoriaJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedorEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioJpaController.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteEliminar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SucursalC.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Excepcion\NonexistentEntityException.java
@@ -20,14 +22,18 @@ C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\EmpresaC.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\SvComprobante.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\ProveedorC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\SvCategoriaEditar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteEditar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\SvCategoria.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\SvEmpresaEliminar.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\Proveedor.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\Categoria.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SucursalJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\ComprobanteJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\Usuario.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioC.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteC.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\ProveedorJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorJpa.java
@@ -40,6 +46,7 @@ C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\PagoJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteJpaController.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\Comprobante.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvUsuario.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteJpa.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedor.java
 C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\Cliente.java

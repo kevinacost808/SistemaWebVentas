@@ -36,14 +36,14 @@
 
             <!-- Nav Item - Sucursales -->
             <li class="nav-item">
-                <a class="nav-link" href="sucursales.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvSucursal">
                     <i class="fas fa-fw fa-building"></i>
                     <span>Sucursales</span></a>
             </li>
             
             <!-- Nav Item - Usuarios -->
             <li class="nav-item">
-                <a class="nav-link" href="usuarios.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvUsuario">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Usuarios</span></a>
             </li>

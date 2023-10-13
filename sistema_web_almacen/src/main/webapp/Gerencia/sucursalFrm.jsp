@@ -40,6 +40,14 @@
                         <label for="direccionSucursal">Direccion</label>
                         <input type="text" class="form-control" id="direccionSucursal" name="direccionSucursal" placeholder="Ingrese la dirección de la sucursal">
                     </div>
+                    <div class="form-group">
+                        <label for="correoSucursal">Correo</label>
+                        <input type="text" class="form-control" id="correoSucursal" name="correoSucursal" placeholder="Ingrese el correo de la sucursal">
+                    </div>
+                    <div class="form-group">
+                        <label for="celularSucursal">Celular</label>
+                        <input type="text" class="form-control" id="celularSucursal" name="celularSucursal" placeholder="Ingrese el celular de la sucursal">
+                    </div>
                     <div class="form-group" hidden>
                         <label for="idEmpresa">Empresa</label>
                         <input type="text" class="p form-control" id="idEmpresa" name="idEmpresa" value="<%=id%>" required>

@@ -22,6 +22,8 @@ public class Sucursal implements Serializable {
     
     private String nombreSucursal;
     private String direccionSucursal;
+    private String correoSucursal;
+    private String celularSucursal;
     
     @ManyToOne
     @JoinColumn(name = "idEmpresa")
@@ -30,10 +32,12 @@ public class Sucursal implements Serializable {
     public Sucursal() {
     }
 
-    public Sucursal(int idSucursal, String nombreSucursal, String direccionSucursal, Empresa empresa) {
+    public Sucursal(int idSucursal, String nombreSucursal, String direccionSucursal, String correoSucursal, String celularSucursal, Empresa empresa) {
         this.idSucursal = idSucursal;
         this.nombreSucursal = nombreSucursal;
         this.direccionSucursal = direccionSucursal;
+        this.correoSucursal = correoSucursal;
+        this.celularSucursal = celularSucursal;
         this.empresa = empresa;
     }
 
@@ -61,6 +65,22 @@ public class Sucursal implements Serializable {
         this.direccionSucursal = direccionSucursal;
     }
 
+    public String getCorreoSucursal() {
+        return correoSucursal;
+    }
+
+    public void setCorreoSucursal(String correoSucursal) {
+        this.correoSucursal = correoSucursal;
+    }
+
+    public String getCelularSucursal() {
+        return celularSucursal;
+    }
+
+    public void setCelularSucursal(String celularSucursal) {
+        this.celularSucursal = celularSucursal;
+    }
+
     public Empresa getEmpresa() {
         return empresa;
     }
@@ -68,6 +88,8 @@ public class Sucursal implements Serializable {
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }
+
+    
     
     
 }

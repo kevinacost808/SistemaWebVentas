@@ -42,11 +42,11 @@
                               <h5 class="card-title font-weight-bold"><%=empresa.getNombreEmpresa()%></h5>
 
                               <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><%=empresa.getRucEmpresa()%></li>
-                                <li class="list-group-item"><%=empresa.getCorreo()%></li>
-                                <li class="list-group-item"><%=empresa.getCelular()%></li>
-                                <li class="list-group-item"><%=empresa.getFechaInicio()%></li>
-                                <li class="list-group-item"><%=empresa.getFechaFin()%></li>
+                                <li class="list-group-item">RUC: <%=empresa.getRucEmpresa()%></li>
+                                <li class="list-group-item">Corre: <%=empresa.getCorreo()%></li>
+                                <li class="list-group-item">Celular: <%=empresa.getCelular()%></li>
+                                <li class="list-group-item">Inicio: <%=empresa.getFechaInicio()%></li>
+                                <li class="list-group-item">Fin: <%=empresa.getFechaFin()%></li>
                               </ul>
                             </div>
                             <div class="p-4">  

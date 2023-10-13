@@ -77,12 +77,18 @@ public class SvSucursal extends HttpServlet {
         String direc = request.getParameter("direccionSucursal");
         String direccionSucursal = direc.toUpperCase();
         
+        String correoSucursal = request.getParameter("correoSucursal");
+        String celularSucursal = request.getParameter("celularSucursal");
+        
         int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
         Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
     
         Sucursal sucursal = new Sucursal();
         sucursal.setNombreSucursal(nombreSucursal);
         sucursal.setDireccionSucursal(direccionSucursal);
+        sucursal.setCorreoSucursal(correoSucursal);
+        sucursal.setCelularSucursal(celularSucursal);
+        
         sucursal.setEmpresa(empresa);
         
         sucursalC.agregarSucursal(sucursal);

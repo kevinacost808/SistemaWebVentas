@@ -47,18 +47,19 @@
                         <div class="card">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title font-weight-bold"><%=sucursal.getNombreSucursal()%></h5>
+                              <h5 class="card-title font-weight-bold">Nombre: <%=sucursal.getNombreSucursal()%></h5>
 
                               <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><%=sucursal.getDireccionSucursal()%></li>
-                                <li class="list-group-item"><%=sucursal.getEmpresa().getNombreEmpresa()%></li>
+                                <li class="list-group-item"> Dirección: <%=sucursal.getDireccionSucursal()%></li>
+                                <li class="list-group-item"> Correo: <%=sucursal.getCorreoSucursal()%></li>
+                                <li class="list-group-item"> Celular: <%=sucursal.getCelularSucursal()%></li>
                               </ul>
                             </div>
                             <div class="p-4">
                                 <div class="mt-4"> 
-                                <form name="editar" action="/sistema_web_almacen/SvSucursakEditar" method="get">
+                                <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
                                     <button type="submit" class="btn btn-outline-secondary">ACTUALIZAR</button>     
-                                    <input type="hidden" name="idEmpresa" value="<%=sucursal.getIdSucursal()%>">
+                                    <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
                                 </form>
                                 </div>
                                 <div class="mt-4"> 

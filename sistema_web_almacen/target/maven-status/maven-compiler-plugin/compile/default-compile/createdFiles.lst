@@ -18,6 +18,7 @@ Proveedor\SvProveedorEliminar.class
 Proveedor\SvProveedor.class
 Pago\SvPagoEliminar.class
 Categoria\CategoriaJpa.class
+Usuario\Usuario.class
 Excepcion\NonexistentEntityException.class
 Empresa\EmpresaC.class
 Proveedor\ProveedorC.class
@@ -30,15 +31,20 @@ Categoria\SvCategoria.class
 Cliente\SvCliente.class
 Comprobante\Comprobante_.class
 Sucursal\Sucursal_.class
+Sucursal\SvSucursalEditar.class
 Categoria\CategoriaJpaController.class
 Categoria\Categoria.class
 Categoria\CategoriaC.class
 Cliente\ClienteJpaController.class
 Excepcion\PreexistingEntityException.class
 PedidoProveedor\PedidoProveedor_.class
+Usuario\UsuarioJpaController.class
 Cliente\Cliente_.class
 Empresa\Empresa.class
 Sucursal\SvEmpresaSucursal.class
+Usuario\SvUsuario.class
+Usuario\UsuarioJpa.class
+Usuario\UsuarioC.class
 Pago\PagoJpa.class
 Cliente\ClienteJpa.class
 Proveedor\ProveedorJpaController.class
@@ -49,6 +55,7 @@ Cliente\ClienteC.class
 Comprobante\Comprobante.class
 PedidoProveedor\PedidoProveedorC.class
 Comprobante\SvComprobante.class
+Usuario\Usuario_.class
 Sucursal\Sucursal.class
 Cliente\Cliente.class
 Excepcion\IllegalOrphanException.class
