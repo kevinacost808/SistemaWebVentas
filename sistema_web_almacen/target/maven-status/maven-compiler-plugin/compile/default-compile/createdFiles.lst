@@ -3,6 +3,7 @@ Empresa\SvEmpresaEliminar.class
 PedidoProveedor\PedidoProveedorJpa.class
 Empresa\EmpresaJpaController.class
 Categoria\SvCategoriaEditar.class
+Proveedor\SvProveedorRuc.class
 Proveedor\Proveedor_.class
 Pago\Pago_.class
 Proveedor\SvProveedorEditar.class
