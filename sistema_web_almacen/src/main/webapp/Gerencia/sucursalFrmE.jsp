@@ -21,33 +21,33 @@
             </div>
             <br>
             <%
-                int id = (int)request.getSession().getAttribute("idEmpresa");
+                Sucursal sucursal = (Sucursal)request.getSession().getAttribute("SucursalEditar");
             %>
             <form action="/sistema_web_almacen/SvSucursalEditar" method="post">
                                             
                 <div class="card-body">
                     <div class="form-group">
                         <label for="nombreSucursal">Nombre</label>
-                        <input type="text" class="form-control" id="nombreSucursal" name="nombreSucursal" required>
+                        <input type="text" class="form-control" id="nombreSucursal" name="nombreSucursal" value="<%=sucursal.getNombreSucursal()%>" required>
                     </div>
                     <div class="form-group">
                         <label for="direccionSucursal">Direccion</label>
-                        <input type="text" class="form-control" id="direccionSucursal" name="direccionSucursal">
+                        <input type="text" class="form-control" id="direccionSucursal" name="direccionSucursal" value="<%=sucursal.getDireccionSucursal()%>">
                     </div>
                     <div class="form-group">
                         <label for="correoSucursal">Correo</label>
-                        <input type="text" class="form-control" id="correoSucursal" name="correoSucursal">
+                        <input type="text" class="form-control" id="correoSucursal" name="correoSucursal" value="<%=sucursal.getCorreoSucursal()%>">
                     </div>
                     <div class="form-group">
                         <label for="celularSucursal">Celular</label>
-                        <input type="text" class="form-control" id="celularSucursal" name="celularSucursal">
+                        <input type="text" class="form-control" id="celularSucursal" name="celularSucursal" value="<%=sucursal.getCelularSucursal()%>"> 
                     </div>
                     <div class="form-group" hidden>
-                        <label for="idEmpresa">Empresa</label>
-                        <input type="text" class="p form-control" id="idEmpresa" name="idEmpresa" value="<%=id%>" required>
+                        <label for="idSucursal">Empresa</label>
+                        <input type="text" class="p form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
                     </div>
                     <button type="submit" class="btn btn-success">Actualizar</button>
-                    <a href="empresa.jsp" class="btn btn-warning">Cancelar</a>
+                    <a href="sucursal.jsp" class="btn btn-warning">Cancelar</a>
                 </div>
                 
             </form>  
@@ -55,7 +55,7 @@
             <div class="p-4 "> 
                 <form name="eliminar" action="/sistema_web_almacen/SvSucursalEliminar" method="post">
                     <button type="submit" class="btn btn-danger">Eliminar</button>     
-                   <input type="hidden" name="idEmpresa">
+                   <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
                 </form>
             </div>       
         </div>

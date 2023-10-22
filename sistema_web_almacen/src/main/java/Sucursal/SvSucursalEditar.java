@@ -1,5 +1,7 @@
 package Sucursal;
 
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpSession;
 public class SvSucursalEditar extends HttpServlet {
 
     SucursalC sucursalC = new SucursalC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,10 +25,10 @@ public class SvSucursalEditar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal UsuarioEditar = sucursalC.consultarSucursalId(idSucursal);
+        Sucursal SucursalEditar = sucursalC.consultarSucursalId(idSucursal);
         
         HttpSession sesion = request.getSession();
-        sesion.setAttribute("UsuarioEditar",UsuarioEditar);
+        sesion.setAttribute("SucursalEditar",SucursalEditar);
         
         response.sendRedirect("gerencia/sucursalFrmE.jsp");
     }
@@ -33,7 +36,31 @@ public class SvSucursalEditar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
+        
+        String nomb = request.getParameter("nombreSucursal");
+        String nombreSucursal = nomb.toUpperCase();
+        
+        String direccionSucursal = request.getParameter("direccionSucursal");
+        String correoSucursal = request.getParameter("correoSucursal");
+        String celularSucursal = request.getParameter("celularSucursal");
+        
+        
+        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
+        
+        Sucursal sucursal = (Sucursal)request.getSession().getAttribute("SucursalEditar");
+        sucursal.setIdSucursal(idSucursal);
+        sucursal.setNombreSucursal(nombreSucursal);
+        sucursal.setDireccionSucursal(direccionSucursal);
+        sucursal.setCorreoSucursal(correoSucursal);
+        sucursal.setCelularSucursal(celularSucursal);
+        
+        sucursal.setEmpresa(empresa);
+        
+        sucursalC.editarSucursal(sucursal);
+        
+        response.sendRedirect("SvSucursal");
     }
 
     @Override

@@ -2,6 +2,7 @@ Empresa\EmpresaJpa.class
 Empresa\SvEmpresaEliminar.class
 PedidoProveedor\PedidoProveedorJpa.class
 Empresa\EmpresaJpaController.class
+Sucursal\SvSucursalEliminar.class
 Categoria\SvCategoriaEditar.class
 Proveedor\SvProveedorRuc.class
 Proveedor\Proveedor_.class

@@ -53,6 +53,8 @@ public class SvProveedorRuc extends HttpServlet {
                 sesion.setAttribute("listaProveedorRucEditar",listaProveedorRucEditar);
                 
                 response.sendRedirect("almacen/proveedorFrmE.jsp");
+                
+                listaProveedorRucEditar = null;
             }
             
         }catch(Exception ex){
@@ -89,6 +91,8 @@ public class SvProveedorRuc extends HttpServlet {
                 sesion.setAttribute("listaProveedorRuc",listaProveedorRuc);
                 
                 response.sendRedirect("almacen/proveedorFrm.jsp");
+                
+                listaProveedorRuc = null;
             }
             
             

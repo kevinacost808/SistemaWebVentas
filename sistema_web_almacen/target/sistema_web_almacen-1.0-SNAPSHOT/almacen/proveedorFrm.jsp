@@ -91,4 +91,8 @@
 
             </div>
             <!-- End of Main Content -->
+            
+            <%
+                listaProveedorRuc = null;
+            %>
 <%@include file="componentes/bodyFinal.jsp" %>
