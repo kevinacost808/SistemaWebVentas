@@ -18,3 +18,6 @@ mysql://uazqj87jwfxu3bfc:Vw2aFpG8D38mbBI1a9LA@b7tcpwdqokgejwjocikg-mysql.service
 
 CLI
 mysql -h b7tcpwdqokgejwjocikg-mysql.services.clever-cloud.com -P 3306 -u uazqj87jwfxu3bfc -p b7tcpwdqokgejwjocikg
+
+
+
