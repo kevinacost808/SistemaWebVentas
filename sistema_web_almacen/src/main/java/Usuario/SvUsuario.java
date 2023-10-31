@@ -77,7 +77,7 @@ public class SvUsuario extends HttpServlet {
         String nombre = nomb.toUpperCase();
         
         String pass = request.getParameter("password");
-        String password = nomb.toUpperCase();
+        String password = pass.toUpperCase();
         
         int idRol = Integer.parseInt(request.getParameter("idRol"));
         Rol rol = rolC.consultarRolId(idRol);

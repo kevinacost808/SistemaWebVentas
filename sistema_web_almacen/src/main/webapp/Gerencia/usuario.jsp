@@ -40,53 +40,44 @@
                 <h6 class="m-0 font-weight-bold text-primary">Lista de Usuarios</h6>
             </div>
             <br>
-            <div class="card-group m-3">
                 <div class="row">
-                    <%
-                        List<Usuario> listaUsuario = (List) request.getSession().getAttribute("listaUsuario");
-                        if(listaUsuario==null){
-                        }else{
-                            for(Usuario usuario: listaUsuario){
-                        
-                    %>
                     <div class="col-12 col-ms-8 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title font-weight-bold"><%=usuario.getNombreUsuario()%></h5>
-
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Password: <%=usuario.getPassword()%></li>
-                              </ul>
-                              
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Rol: <%=usuario.getRol()%></li>
-                              </ul>
-                            </div>
-                            <div class="p-4">
-                                <div class="mt-2"> 
-                                <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
-                                    <button type="submit" class="btn btn-outline-info">USUARIOS</button>     
-                                    <input type="hidden" name="idSucursal" value="<%=usuario.getIdUsuario()%>">
-                                </form>
-                                </div>
-                                <div class="mt-4"> 
-                                <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
-                                    <button type="submit" class="btn btn-outline-warning">ACTUALIZAR</button>     
-                                    <input type="hidden" name="idSucursal" value="<%=usuario.getIdUsuario()%>">
-                                </form>
-                                </div>
-                                <div class="mt-4"> 
-                                <form name="eliminar" action="/sistema_web_almacen/SvSucursalEliminar" method="post">
-                                    <button type="submit" class="btn btn-outline-danger">HABILITAR</button>     
-                                   <input type="hidden" name="idEmpresa" value="<%=usuario.getIdUsuario()%>">
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                    <%  }}%>
+                        <table class="table table-hover ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre Usuario</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Rol</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                List<Usuario> listaUsuario = (List) request.getSession().getAttribute("listaUsuario");
+                                if(listaUsuario==null){
+                                }else{
+                                    for(Usuario usuario: listaUsuario){
+                            %>
+                                <tr>
+                                   <td><%=usuario.getNombreUsuario()%></td>
+                                   <td><%=usuario.getPassword()%></td>
+                                   <td><%=usuario.getRol().getNombreRol()%></td>
+                                   <td>
+                                       <form name="editar" action="/sistema_web_almacen/SvUsuarioEditar" method="get">
+                                            <button type="submit" class="btn btn-info">ACTUALIZAR</button>     
+                                            <input type="hidden" name="idUsuario" value="<%=usuario.getIdUsuario()%>">
+                                        </form>
+                                   </td>
+                                   <td>
+                                       <form name="editar" action="/sistema_web_almacen/SvUsuarioEliminar" method="post">
+                                            <button type="submit" class="btn btn-danger">Eliminar</button>     
+                                            <input type="hidden" name="idUsuario" value="<%=usuario.getIdUsuario()%>">
+                                        </form>
+                                   </td>
+                                </tr>
+                            <%  }}%>
+                            </tbody>
+                        </table>
                 </div>
-            </div>
             <br>
         </div>
     </div>

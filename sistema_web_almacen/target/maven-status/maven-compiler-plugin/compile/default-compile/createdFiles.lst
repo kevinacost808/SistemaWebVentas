@@ -40,6 +40,7 @@ Sucursal\SvSucursalEditar.class
 Categoria\CategoriaJpaController.class
 Categoria\Categoria.class
 Rol\Rol.class
+Usuario\SvUsuarioEliminar.class
 Categoria\CategoriaC.class
 Cliente\ClienteJpaController.class
 Excepcion\PreexistingEntityException.class
