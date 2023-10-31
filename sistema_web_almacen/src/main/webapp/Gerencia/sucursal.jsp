@@ -43,11 +43,10 @@
                             for(Sucursal sucursal: listaSucursal){
                         
                     %>
-                    <div class="col-sm-6 mb-3 ">
+                    <div class="col-12 col-ms-8 mb-3">
                         <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
-                              <h5 class="card-title font-weight-bold">Nombre: <%=sucursal.getNombreSucursal()%></h5>
+                              <h5 class="card-title font-weight-bold"><%=sucursal.getNombreSucursal()%></h5>
 
                               <ul class="list-group list-group-flush">
                                 <li class="list-group-item"> Dirección: <%=sucursal.getDireccionSucursal()%></li>
@@ -56,15 +55,21 @@
                               </ul>
                             </div>
                             <div class="p-4">
+                                <div class="mt-2"> 
+                                <form name="editar" action="/sistema_web_almacen/SvSucursalUsuario" method="post">
+                                    <button type="submit" class="btn btn-outline-info">USUARIOS</button>     
+                                    <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
+                                </form>
+                                </div>
                                 <div class="mt-4"> 
                                 <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
-                                    <button type="submit" class="btn btn-outline-secondary">ACTUALIZAR</button>     
+                                    <button type="submit" class="btn btn-outline-warning">ACTUALIZAR</button>     
                                     <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
                                 </form>
                                 </div>
                                 <div class="mt-4"> 
                                 <form name="eliminar" action="/sistema_web_almacen/SvSucursalEliminar" method="post">
-                                    <button type="submit" class="btn btn-outline-info">HABILITAR</button>     
+                                    <button type="submit" class="btn btn-outline-danger">HABILITAR</button>     
                                    <input type="hidden" name="idEmpresa" value="<%=sucursal.getIdSucursal()%>">
                                 </form>
                                 </div>

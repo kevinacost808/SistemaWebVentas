@@ -37,13 +37,12 @@
                     %>
                     <div class="col-12 col-ms-8 mb-3">
                         <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title font-weight-bold"><%=empresa.getNombreEmpresa()%></h5>
 
                               <ul class="list-group list-group-flush">
                                 <li class="list-group-item">RUC: <%=empresa.getRucEmpresa()%></li>
-                                <li class="list-group-item">Corre: <%=empresa.getCorreo()%></li>
+                                <li class="list-group-item">Correo: <%=empresa.getCorreo()%></li>
                                 <li class="list-group-item">Celular: <%=empresa.getCelular()%></li>
                                 <li class="list-group-item">Inicio: <%=empresa.getFechaInicio()%></li>
                                 <li class="list-group-item">Fin: <%=empresa.getFechaFin()%></li>
@@ -52,21 +51,21 @@
                             <div class="p-4">  
                                 <div> 
                                 <form name="sucursales" action="/sistema_web_almacen/SvEmpresaSucursal" method="post">
-                                    <button type="submit" class="btn btn-outline-success">SUCURSALES</button>     
+                                    <button type="submit" class="btn btn-outline-info">SUCURSALES</button>     
                                     <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
                                 </form>
                                 </div>
                                 
                                 <div class="mt-4"> 
                                 <form name="editar" action="/sistema_web_almacen/SvEmpresaEditar" method="get">
-                                    <button type="submit" class="btn btn-outline-secondary">CONFIGURACIÓN</button>     
+                                    <button type="submit" class="btn btn-outline-warning">CONFIGURACIÓN</button>     
                                     <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
                                 </form>
                                 </div>
                                 
                                 <div class="mt-4"> 
                                 <form name="habilitar" action="/sistema_web_almacen/aaaaa" method="post">
-                                    <button type="submit" class="btn btn-outline-info">HABILITAR</button>     
+                                    <button type="submit" class="btn btn-outline-danger">HABILITAR</button>     
                                    <input type="hidden" name="idEmpresa" value="<%=empresa.getIdEmpresa()%>">
                                 </form>
                                 </div>

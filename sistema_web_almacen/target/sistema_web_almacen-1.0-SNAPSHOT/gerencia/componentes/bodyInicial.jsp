@@ -41,6 +41,13 @@
                     <span>Empresas</span></a>
             </li>
             
+            <!-- Nav Item - Sucursales -->
+            <li class="nav-item">
+                <a class="nav-link" href="rol.jsp">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Roles</span></a>
+            </li>
+            
             <!-- Nav Item - Usuarios -->
             <li class="nav-item">
                 <a class="nav-link" href="usuarios.jsp">

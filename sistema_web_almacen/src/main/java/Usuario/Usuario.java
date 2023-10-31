@@ -1,5 +1,6 @@
 package Usuario;
 
+import Rol.Rol;
 import Sucursal.Sucursal;
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -26,16 +27,31 @@ public class Usuario implements Serializable {
     @OneToOne
     @JoinColumn(name = "idSucursal")
     private Sucursal sucursal;
+    
+    @OneToOne
+    @JoinColumn(name = "idRol")
+    private Rol rol;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, Sucursal sucursal) {
+    public Usuario(int idUsuario, String nombreUsuario, String password, Sucursal sucursal, Rol rol) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.sucursal = sucursal;
+        this.rol = rol;
     }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    
 
     public int getIdUsuario() {
         return idUsuario;
