@@ -1,6 +1,7 @@
 package PedidoProveedor;
 
 import Proveedor.Proveedor;
+import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -30,6 +31,10 @@ public class PedidoProveedor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "idProveedor")
     private Proveedor proveedor;
+    
+    @ManyToOne
+    @JoinColumn(name = "idSucursal")
+    private Sucursal sucursal;
 
     public PedidoProveedor() {
     }

@@ -1,3 +1,5 @@
+<%@page import="Sucursal.Sucursal"%>
+<%@page import="Sucursal.SucursalC"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,6 +23,9 @@
 
             <%
                 List<String> listaClienteDni = (List)request.getSession().getAttribute("listaClienteDni");
+                int idSucursal = (int)request.getSession().getAttribute("idSucursal");
+                SucursalC sucursalC = new SucursalC();
+                Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
             %>
                 
             <form action="/sistema_web_almacen/SvClienteDni" method="post">
@@ -63,6 +68,11 @@
                     <div class="form-group">
                         <label for="correo">Correo Electrónico</label>
                         <input type="email" class="form-control" id="correo" name="correo" >
+                    </div>
+                    
+                    <div class="form-group" hidden>
+                        <label for="idSucursal">Sucursal</label>
+                        <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
                     </div>
 
                     <div class="form-group">

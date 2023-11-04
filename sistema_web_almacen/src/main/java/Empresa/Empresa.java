@@ -1,5 +1,6 @@
 package Empresa;
 
+import Categoria.Categoria;
 import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;

@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Clientes -->
             <li class="nav-item">
-                <a class="nav-link" href="cliente.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvCliente">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Clientes</span></a>
             </li>
@@ -161,7 +161,7 @@
                                     Activity Log
                                 </a> -->
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="../../login.jsp" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

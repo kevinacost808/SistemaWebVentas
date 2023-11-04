@@ -1,6 +1,7 @@
 package Proveedor;
 
 import PedidoProveedor.PedidoProveedor;
+import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,6 +27,10 @@ public class Proveedor implements Serializable {
     
     @OneToMany(mappedBy = "proveedor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PedidoProveedor> pedidosProveedor;
+    
+    @ManyToOne
+    @JoinColumn(name = "idSucursal")
+    private Sucursal sucursal;
     
     public Proveedor() {
     }

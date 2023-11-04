@@ -1,10 +1,13 @@
 package Cliente;
 
+import Sucursal.Sucursal;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -21,17 +24,30 @@ public class Cliente implements Serializable {
     private String dni;
     private String celular;
     private String correo;
+    
+    @ManyToOne
+    @JoinColumn(name = "idSucursal")
+    private Sucursal sucursal;
 
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nombre, String apellido, String dni, String celular, String correo) {
+    public Cliente(int idCliente, String nombre, String apellido, String dni, String celular, String correo, Sucursal sucursal) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.celular = celular;
         this.correo = correo;
+        this.sucursal = sucursal;
+    }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
     }
 
     public int getIdCliente() {

@@ -1,3 +1,5 @@
+<%@page import="Sucursal.Sucursal"%>
+<%@page import="Sucursal.SucursalC"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,14 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Agregar Categoria</h1>
                     <br>
+                    
+                    <%
+                        int idSucursal = (int)request.getSession().getAttribute("idSucursal");
+                        SucursalC sucursalC = new SucursalC();
+                        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+                    %>
+                    
+                    
                     <form action="/sistema_web_almacen/SvCategoria" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -21,6 +31,11 @@
                                 <div class="form-group">
                                     <label for="nombreCategoria">Nombre</label>
                                     <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" required>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idSucursal">Sucursal</label>
+                                    <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
                                 </div>
                                 
                                 <div class="form-group">

@@ -1,5 +1,7 @@
 package Cliente;
 
+import Sucursal.Sucursal;
+import Sucursal.SucursalC;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpSession;
 public class SvClienteEditar extends HttpServlet {
 
     ClienteC clienteC = new ClienteC();
+    SucursalC sucursalC = new SucursalC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,6 +46,8 @@ public class SvClienteEditar extends HttpServlet {
         String dni = request.getParameter("dni");
         String celular = request.getParameter("celular");
         String correo = request.getParameter("correo");
+        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
+        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
         
         Cliente clienteEditar =  new Cliente();
         clienteEditar.setIdCliente(idCliente);
@@ -51,6 +56,7 @@ public class SvClienteEditar extends HttpServlet {
         clienteEditar.setDni(dni);
         clienteEditar.setCelular(celular);
         clienteEditar.setCorreo(correo);
+        clienteEditar.setSucursal(sucursal);
         
         clienteC.editarCliente(clienteEditar);
         

@@ -68,6 +68,7 @@ Comprobante\SvComprobante.class
 Rol\RolC.class
 Usuario\Usuario_.class
 Sucursal\Sucursal.class
+Usuario\SvLogin.class
 Cliente\Cliente.class
 Excepcion\IllegalOrphanException.class
 Empresa\Empresa_.class

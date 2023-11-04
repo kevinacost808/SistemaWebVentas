@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import Categoria.Categoria;
+import Sucursal.Sucursal;
+import Sucursal.SucursalC;
 
 /**
  *
@@ -20,6 +22,7 @@ import Categoria.Categoria;
 public class SvCategoria extends HttpServlet {
 
     CategoriaC categoriaC = new CategoriaC();
+    SucursalC sucursalC = new SucursalC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,8 +32,37 @@ public class SvCategoria extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idSucursalStr = request.getParameter("idSucursal");
+        int idSucursal =0;
+        
+        // Verificar si idEmpresaStr no es nulo ni está vacío
+        if (idSucursalStr != null && !idSucursalStr.isEmpty()) {
+            try {
+                // Intentar convertir idEmpresaStr a un entero
+                idSucursal = Integer.parseInt(idSucursalStr);
+            } catch (NumberFormatException e) {
+                // Manejar la excepción si idEmpresaStr no es un número válido
+                System.out.println("idEmpresa no es un número válido.");
+            }
+        }else{
+            HttpSession sesion = request.getSession();
+            idSucursal = (int) sesion.getAttribute("idSucursal");
+        }
+        
+        List<Categoria> categoria = new ArrayList<Categoria>();
+        categoria = categoriaC.consultarCategoria();
+        
         List<Categoria> listaCategoria = new ArrayList<Categoria>();
-        listaCategoria = categoriaC.consultarCategoria();
+        
+        if (categoria != null) {
+            // Itera a través de la lista para encontrar el elemento deseado
+            for (Categoria c : categoria) {    
+                Sucursal sucursal = c.getSucursal();
+                if (sucursal != null && sucursal.getIdSucursal() == idSucursal) {
+                    listaCategoria.add(c);
+                }
+            }
+        }
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaCategoria",listaCategoria);
@@ -44,9 +76,12 @@ public class SvCategoria extends HttpServlet {
         
         String nombreC = request.getParameter("nombreCategoria");
         String nombreCategoria = nombreC.toUpperCase();
-                
+        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
+        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        
         Categoria categoria = new Categoria();
         categoria.setNombreCategoria(nombreCategoria);
+        categoria.setSucursal(sucursal);
         
         categoriaC.agregarCategoria(categoria);
         

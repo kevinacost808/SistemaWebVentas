@@ -1,3 +1,5 @@
+<%@page import="Sucursal.Sucursal"%>
+<%@page import="Sucursal.SucursalC"%>
 <%@page import="Comprobante.Comprobante"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +14,12 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Editar Comprobante</h1>
                     <br>
-                    <% Comprobante comprobanteEditar = (Comprobante)request.getSession().getAttribute("comprobanteEditar");%>
+                    <% 
+                        Comprobante comprobanteEditar = (Comprobante)request.getSession().getAttribute("comprobanteEditar");
+                        int idSucursal = (int)request.getSession().getAttribute("idSucursal");
+                        SucursalC sucursalC = new SucursalC();
+                        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+                    %>
                     <form action="/sistema_web_almacen/SvComprobanteEditar" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -27,6 +34,11 @@
                                 <div class="form-group">
                                     <label for="tipoComprobante">Tipo Comprobante</label>
                                     <input type="text" class="form-control" id="tipoComprobante" name="tipoComprobante" value="<%=comprobanteEditar.getTipoComprobante()%>" required>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idSucursal">Sucursal</label>
+                                    <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
                                 </div>
                                 
                                 <div class="form-group">

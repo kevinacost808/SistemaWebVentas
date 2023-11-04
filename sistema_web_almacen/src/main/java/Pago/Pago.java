@@ -1,10 +1,13 @@
 package Pago;
 
+import Sucursal.Sucursal;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -18,6 +21,10 @@ public class Pago implements Serializable {
     private int idPago;
     
     private String tipoPago;
+    
+    @ManyToOne
+    @JoinColumn(name = "idSucursal")
+    private Sucursal sucursal;
 
     public Pago() {
     }

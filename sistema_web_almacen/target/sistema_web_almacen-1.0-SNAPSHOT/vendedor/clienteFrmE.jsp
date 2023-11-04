@@ -1,3 +1,5 @@
+<%@page import="Sucursal.Sucursal"%>
+<%@page import="Sucursal.SucursalC"%>
 <%@page import="java.util.List"%>
 <%@page import="Cliente.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,6 +19,9 @@
         <%
         Cliente cliente = (Cliente)request.getSession().getAttribute("clienteEditar");
         List<String> listaClienteDniEditar = (List)request.getSession().getAttribute("listaClienteDniEditar");
+        int idSucursal = (int)request.getSession().getAttribute("idSucursal");
+        SucursalC sucursalC = new SucursalC();
+        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
         %>
 
         <div class="card shadow mb-4">
@@ -69,6 +74,11 @@
                     <div class="form-group">
                         <label for="correo">Correo Electrónico</label>
                         <input type="email" class="form-control" id="correo" name="correo" value="<%=cliente.getCorreo()%>">
+                    </div>
+                    
+                    <div class="form-group" hidden>
+                        <label for="idSucursal">Sucursal</label>
+                        <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
                     </div>
                     
                     <div class="form-group">
