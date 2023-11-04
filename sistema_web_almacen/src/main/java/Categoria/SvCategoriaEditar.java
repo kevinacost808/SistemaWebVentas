@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import Categoria.Categoria;
-import Sucursal.Sucursal;
-import Sucursal.SucursalC;
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 
 /**
  *
@@ -20,7 +20,7 @@ import Sucursal.SucursalC;
 public class SvCategoriaEditar extends HttpServlet {
 
     CategoriaC categoriaC = new CategoriaC(); 
-    SucursalC sucursalC = new SucursalC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,13 +47,13 @@ public class SvCategoriaEditar extends HttpServlet {
         int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
         String nombreC = request.getParameter("nombreCategoria");
         String nombreCategoria = nombreC.toUpperCase();
-        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
         
         Categoria categoria = new Categoria();
         categoria.setIdCategoria(idCategoria);
         categoria.setNombreCategoria(nombreCategoria);
-        categoria.setSucursal(sucursal);
+        categoria.setEmpresa(empresa);
         
         categoriaC.editarCategoria(categoria);
         

@@ -1,6 +1,7 @@
 package Empresa;
 
 import Categoria.Categoria;
+import Comprobante.Comprobante;
 import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
@@ -34,10 +35,16 @@ public class Empresa implements Serializable{
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Sucursal> sucursal;
     
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Categoria> categoria;
+    
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comprobante> comprobante;
+    
     public Empresa() {
     }
 
-    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin, List<Sucursal> sucursal) {
+    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin, List<Sucursal> sucursal, List<Categoria> categoria, List<Comprobante> comprobante) {
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.rucEmpresa = rucEmpresa;
@@ -46,7 +53,27 @@ public class Empresa implements Serializable{
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.sucursal = sucursal;
+        this.categoria = categoria;
+        this.comprobante = comprobante;
     }
+
+    public List<Categoria> getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(List<Categoria> categoria) {
+        this.categoria = categoria;
+    }
+
+    public List<Comprobante> getComprobante() {
+        return comprobante;
+    }
+
+    public void setComprobante(List<Comprobante> comprobante) {
+        this.comprobante = comprobante;
+    }
+    
+    
 
     public List<Sucursal> getSucursal() {
         return sucursal;

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import Categoria.Categoria;
-import Sucursal.Sucursal;
-import Sucursal.SucursalC;
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 
 /**
  *
@@ -22,7 +22,7 @@ import Sucursal.SucursalC;
 public class SvCategoria extends HttpServlet {
 
     CategoriaC categoriaC = new CategoriaC();
-    SucursalC sucursalC = new SucursalC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,21 +32,21 @@ public class SvCategoria extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idSucursalStr = request.getParameter("idSucursal");
-        int idSucursal =0;
+        String idEmpresaStr = request.getParameter("idEmpresa");
+        int idEmpresa =0;
         
         // Verificar si idEmpresaStr no es nulo ni está vacío
-        if (idSucursalStr != null && !idSucursalStr.isEmpty()) {
+        if (idEmpresaStr != null && !idEmpresaStr.isEmpty()) {
             try {
                 // Intentar convertir idEmpresaStr a un entero
-                idSucursal = Integer.parseInt(idSucursalStr);
+                idEmpresa = Integer.parseInt(idEmpresaStr);
             } catch (NumberFormatException e) {
                 // Manejar la excepción si idEmpresaStr no es un número válido
                 System.out.println("idEmpresa no es un número válido.");
             }
         }else{
             HttpSession sesion = request.getSession();
-            idSucursal = (int) sesion.getAttribute("idSucursal");
+            idEmpresa = (int) sesion.getAttribute("idEmpresa");
         }
         
         List<Categoria> categoria = new ArrayList<Categoria>();
@@ -57,8 +57,8 @@ public class SvCategoria extends HttpServlet {
         if (categoria != null) {
             // Itera a través de la lista para encontrar el elemento deseado
             for (Categoria c : categoria) {    
-                Sucursal sucursal = c.getSucursal();
-                if (sucursal != null && sucursal.getIdSucursal() == idSucursal) {
+                Empresa empresa = c.getEmpresa();
+                if (empresa != null && empresa.getIdEmpresa() == idEmpresa) {
                     listaCategoria.add(c);
                 }
             }
@@ -76,12 +76,12 @@ public class SvCategoria extends HttpServlet {
         
         String nombreC = request.getParameter("nombreCategoria");
         String nombreCategoria = nombreC.toUpperCase();
-        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
         
         Categoria categoria = new Categoria();
         categoria.setNombreCategoria(nombreCategoria);
-        categoria.setSucursal(sucursal);
+        categoria.setEmpresa(empresa);
         
         categoriaC.agregarCategoria(categoria);
         

@@ -1,5 +1,3 @@
-<%@page import="Sucursal.Sucursal"%>
-<%@page import="Sucursal.SucursalC"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +14,7 @@
                     <br>
                     
                     <%
-                        int idSucursal = (int)request.getSession().getAttribute("idSucursal");
-                        SucursalC sucursalC = new SucursalC();
-                        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
                     %>
                     
                     
@@ -35,7 +31,7 @@
                                 
                                 <div class="form-group" hidden>
                                     <label for="idSucursal">Sucursal</label>
-                                    <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">

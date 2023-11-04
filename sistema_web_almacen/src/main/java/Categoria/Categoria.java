@@ -1,6 +1,6 @@
 package Categoria;
 
-import Sucursal.Sucursal;
+import Empresa.Empresa;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,25 +22,26 @@ public class Categoria implements Serializable {
     private String nombreCategoria;
 
     @ManyToOne
-    @JoinColumn(name = "idSucursal")
-    private Sucursal sucursal;
+    @JoinColumn(name = "idEmpresa")
+    private Empresa empresa;
     
     public Categoria() {
     }
 
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
-
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
-    }
-
-    public Categoria(int idCategoria, String nombreCategoria, Sucursal sucursal) {
+    public Categoria(int idCategoria, String nombreCategoria, Empresa empresa) {
         this.idCategoria = idCategoria;
         this.nombreCategoria = nombreCategoria;
-        this.sucursal = sucursal;
+        this.empresa = empresa;
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
 
 
     public int getIdCategoria() {

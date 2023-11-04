@@ -1,7 +1,7 @@
 package Comprobante;
 
-import Sucursal.Sucursal;
-import Sucursal.SucursalC;
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 public class SvComprobanteEditar extends HttpServlet {
 
     ComprobanteC comprobanteC = new ComprobanteC();
-    SucursalC sucursalC = new SucursalC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,13 +43,13 @@ public class SvComprobanteEditar extends HttpServlet {
         int idComprobante = Integer.parseInt(request.getParameter("idComprobante"));
         String tipoC = request.getParameter("tipoComprobante");
         String tipoComprobante = tipoC.toUpperCase();
-        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
         
         Comprobante comprobante = new Comprobante();
         comprobante.setIdComprobante(idComprobante);
         comprobante.setTipoComprobante(tipoComprobante);
-        comprobante.setSucursal(sucursal);
+        comprobante.setEmpresa(empresa);
         
         comprobanteC.editarComprobante(comprobante);
         

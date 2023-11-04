@@ -16,9 +16,7 @@
                     <br>
                     <% 
                         Categoria categoria = (Categoria)request.getSession().getAttribute("categoriaEditar");
-                        int idSucursal = (int)request.getSession().getAttribute("idSucursal");
-                        SucursalC sucursalC = new SucursalC();
-                        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
                     %>
                     <form action="/sistema_web_almacen/SvCategoriaEditar" method="post">
                         <div class="card shadow mb-4">
@@ -38,7 +36,7 @@
                                 
                                 <div class="form-group" hidden>
                                     <label for="idSucursal">Sucursal</label>
-                                    <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=sucursal.getIdSucursal()%>" required>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">

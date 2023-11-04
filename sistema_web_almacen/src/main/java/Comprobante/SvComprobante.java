@@ -1,5 +1,7 @@
 package Comprobante;
 
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 import Sucursal.Sucursal;
 import Sucursal.SucursalC;
 import java.io.IOException;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpSession;
 public class SvComprobante extends HttpServlet {
 
     ComprobanteC comprobanteC = new ComprobanteC();
-    SucursalC sucursalC = new SucursalC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,21 +32,21 @@ public class SvComprobante extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String idSucursalStr = request.getParameter("idSucursal");
-        int idSucursal =0;
+        String idEmpresaStr = request.getParameter("idEmpresa");
+        int idEmpresa =0;
         
         // Verificar si idEmpresaStr no es nulo ni está vacío
-        if (idSucursalStr != null && !idSucursalStr.isEmpty()) {
+        if (idEmpresaStr != null && !idEmpresaStr.isEmpty()) {
             try {
                 // Intentar convertir idEmpresaStr a un entero
-                idSucursal = Integer.parseInt(idSucursalStr);
+                idEmpresa = Integer.parseInt(idEmpresaStr);
             } catch (NumberFormatException e) {
                 // Manejar la excepción si idEmpresaStr no es un número válido
                 System.out.println("idEmpresa no es un número válido.");
             }
         }else{
             HttpSession sesion = request.getSession();
-            idSucursal = (int) sesion.getAttribute("idSucursal");
+            idEmpresa = (int) sesion.getAttribute("idEmpresa");
         }
         
         List<Comprobante> comprobante = new ArrayList<Comprobante>();
@@ -55,8 +57,8 @@ public class SvComprobante extends HttpServlet {
         if (comprobante != null) {
             // Itera a través de la lista para encontrar el elemento deseado
             for (Comprobante c : comprobante) {    
-                Sucursal sucursal = c.getSucursal();
-                if (sucursal != null && sucursal.getIdSucursal() == idSucursal) {
+                Empresa empresa = c.getEmpresa();
+                if (empresa != null && empresa.getIdEmpresa() == idEmpresa) {
                     listaComprobante.add(c);
                 }
             }
@@ -73,12 +75,12 @@ public class SvComprobante extends HttpServlet {
             throws ServletException, IOException {
         String tipoC = request.getParameter("tipoComprobante");
         String tipoComprobante = tipoC.toUpperCase();
-        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
         
         Comprobante comprobante = new Comprobante();
         comprobante.setTipoComprobante(tipoComprobante);
-        comprobante.setSucursal(sucursal);
+        comprobante.setEmpresa(empresa);
         
         comprobanteC.agregarComprobante(comprobante);
         

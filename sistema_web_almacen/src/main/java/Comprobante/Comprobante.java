@@ -1,6 +1,6 @@
 package Comprobante;
 
-import Sucursal.Sucursal;
+import Empresa.Empresa;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,25 +24,26 @@ public class Comprobante implements Serializable {
     private String tipoComprobante;
 
     @ManyToOne
-    @JoinColumn(name = "idSucursal")
-    private Sucursal sucursal;
+    @JoinColumn(name = "idEmpresa")
+    private Empresa empresa;
     
     public Comprobante() {
     }
 
-    public Comprobante(int idComprobante, String tipoComprobante, Sucursal sucursal) {
+    public Comprobante(int idComprobante, String tipoComprobante, Empresa empresa) {
         this.idComprobante = idComprobante;
         this.tipoComprobante = tipoComprobante;
-        this.sucursal = sucursal;
+        this.empresa = empresa;
     }
 
-    public Sucursal getSucursal() {
-        return sucursal;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
+    
 
     public int getIdComprobante() {
         return idComprobante;
@@ -59,8 +60,4 @@ public class Comprobante implements Serializable {
     public void setTipoComprobante(String tipoComprobante) {
         this.tipoComprobante = tipoComprobante;
     }
-    
-    
-    
-    
 }
