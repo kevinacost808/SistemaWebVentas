@@ -1,6 +1,6 @@
 package Pago;
 
-import Sucursal.Sucursal;
+import Empresa.Empresa;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,16 +23,26 @@ public class Pago implements Serializable {
     private String tipoPago;
     
     @ManyToOne
-    @JoinColumn(name = "idSucursal")
-    private Sucursal sucursal;
+    @JoinColumn(name = "idEmpresa")
+    private Empresa empresa;
 
     public Pago() {
     }
 
-    public Pago(int idPago, String tipoPago) {
+    public Pago(int idPago, String tipoPago, Empresa empresa) {
         this.idPago = idPago;
         this.tipoPago = tipoPago;
+        this.empresa = empresa;
     }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+    
 
     public int getIdPago() {
         return idPago;

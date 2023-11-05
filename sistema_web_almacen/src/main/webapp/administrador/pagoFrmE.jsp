@@ -12,7 +12,10 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Editar Categoria</h1>
                     <br>
-                    <% Pago pagoEditar = (Pago)request.getSession().getAttribute("pagoEditar");%>
+                    <% 
+                        Pago pagoEditar = (Pago)request.getSession().getAttribute("pagoEditar");
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
+                    %>
                     <form action="/sistema_web_almacen/SvPagoEditar" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -27,6 +30,11 @@
                                 <div class="form-group">
                                     <label for="tipoPago">Tipo Pago</label>
                                     <input type="text" class="form-control" id="tipoPago" name="tipoPago" value="<%=pagoEditar.getTipoPago()%>" required>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">

@@ -12,6 +12,11 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Agregar Pago</h1>
                     <br>
+                    
+                    <%
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
+                    %>
+                    
                     <form action="/sistema_web_almacen/SvPago" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -21,6 +26,11 @@
                                 <div class="form-group">
                                     <label for="tipoPago">Tipo Pago:</label>
                                     <input type="text" class="form-control" id="tipoPago" name="tipoPago" required>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">
