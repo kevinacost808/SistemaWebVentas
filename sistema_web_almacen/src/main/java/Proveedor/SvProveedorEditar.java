@@ -1,6 +1,8 @@
 
 package Proveedor;
 
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import Proveedor.ProveedorC;
 public class SvProveedorEditar extends HttpServlet {
 
     ProveedorC proveedorC = new ProveedorC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,6 +51,8 @@ public class SvProveedorEditar extends HttpServlet {
         
         String celular = request.getParameter("celular");
         String correo = request.getParameter("correo");
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
         
         Proveedor proveedor = (Proveedor)request.getSession().getAttribute("proveedorEditar");
         proveedor.setIdProveedor(idProveedor);
@@ -56,6 +61,7 @@ public class SvProveedorEditar extends HttpServlet {
         proveedor.setDireccion(direccion);
         proveedor.setCelular(celular);
         proveedor.setCorreo(correo);
+        proveedor.setEmpresa(empresa);
         
         proveedorC.editarProveedor(proveedor);
         

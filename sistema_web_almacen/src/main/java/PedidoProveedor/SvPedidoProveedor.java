@@ -1,5 +1,7 @@
 package PedidoProveedor;
 
+import Empresa.Empresa;
+import Empresa.EmpresaC;
 import Proveedor.Proveedor;
 import Proveedor.ProveedorC;
 import java.io.IOException;
@@ -23,6 +25,7 @@ public class SvPedidoProveedor extends HttpServlet {
 
     PedidoProveedorC pedidoProveedorC = new PedidoProveedorC();
     ProveedorC proveedorC = new ProveedorC();
+    EmpresaC empresaC = new EmpresaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,8 +34,37 @@ public class SvPedidoProveedor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idEmpresaStr = request.getParameter("idEmpresa");
+        int idEmpresa =0;
+        
+        // Verificar si idEmpresaStr no es nulo ni está vacío
+        if (idEmpresaStr != null && !idEmpresaStr.isEmpty()) {
+            try {
+                // Intentar convertir idEmpresaStr a un entero
+                idEmpresa = Integer.parseInt(idEmpresaStr);
+            } catch (NumberFormatException e) {
+                // Manejar la excepción si idEmpresaStr no es un número válido
+                System.out.println("idEmpresa no es un número válido.");
+            }
+        }else{
+            HttpSession sesion = request.getSession();
+            idEmpresa = (int) sesion.getAttribute("idEmpresa");
+        }
+        
+        List<PedidoProveedor> pedidoProveedor = new ArrayList<PedidoProveedor>();
+        pedidoProveedor = pedidoProveedorC.consultarPedido();
+        
         List<PedidoProveedor> listaPedidoProveedor = new ArrayList<PedidoProveedor>();
-        listaPedidoProveedor = pedidoProveedorC.consultarPedido();
+        
+        if (pedidoProveedor != null) {
+            // Itera a través de la lista para encontrar el elemento deseado
+            for (PedidoProveedor p : pedidoProveedor) {    
+                Empresa empresa = p.getEmpresa();
+                if (empresa != null && empresa.getIdEmpresa() == idEmpresa) {
+                    listaPedidoProveedor.add(p);
+                }
+            }
+        }
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaPedidoProveedor", listaPedidoProveedor);
@@ -64,13 +96,17 @@ public class SvPedidoProveedor extends HttpServlet {
         
         int idProveedor = Integer.parseInt(request.getParameter("idProveedor"));
         Proveedor proveedor = proveedorC.consultarProveedorId(idProveedor);
-    
+        
+        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
+        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
+        
         PedidoProveedor pedidoProveedor = new PedidoProveedor();
         pedidoProveedor.setNombre(nombre);
         pedidoProveedor.setCantidad(cantidad);
         pedidoProveedor.setPrecioUnidad(precioUnidad);
         pedidoProveedor.setFechaPedido(fechaPedido);
         pedidoProveedor.setProveedor(proveedor);
+        pedidoProveedor.setEmpresa(empresa);
         
         pedidoProveedorC.agregarPedido(pedidoProveedor);
         

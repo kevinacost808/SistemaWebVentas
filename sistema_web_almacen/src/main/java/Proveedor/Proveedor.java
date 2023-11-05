@@ -1,7 +1,7 @@
 package Proveedor;
 
+import Empresa.Empresa;
 import PedidoProveedor.PedidoProveedor;
-import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -29,13 +29,13 @@ public class Proveedor implements Serializable {
     private List<PedidoProveedor> pedidosProveedor;
     
     @ManyToOne
-    @JoinColumn(name = "idSucursal")
-    private Sucursal sucursal;
+    @JoinColumn(name = "idEmpresa")
+    private Empresa empresa;
     
     public Proveedor() {
     }
 
-    public Proveedor(int idProveedor, String nombreProveedor, String rucProveedor, String direccion, String celular, String correo, List<PedidoProveedor> pedidosProveedor) {
+    public Proveedor(int idProveedor, String nombreProveedor, String rucProveedor, String direccion, String celular, String correo, List<PedidoProveedor> pedidosProveedor, Empresa empresa) {
         this.idProveedor = idProveedor;
         this.nombreProveedor = nombreProveedor;
         this.rucProveedor = rucProveedor;
@@ -43,8 +43,17 @@ public class Proveedor implements Serializable {
         this.celular = celular;
         this.correo = correo;
         this.pedidosProveedor = pedidosProveedor;
+        this.empresa = empresa;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+    
     public int getIdProveedor() {
         return idProveedor;
     }

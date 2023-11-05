@@ -15,6 +15,7 @@
                     <form action="/sistema_web_almacen/SvProveedorEditar" method="post">
                         <%
                             Proveedor proveedor = (Proveedor)request.getSession().getAttribute("proveedorEditar");
+                            int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
                         %>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -50,6 +51,11 @@
                                 <div class="form-group">
                                     <label for="correo">Correo</label>
                                     <input type="text" class="form-control" id="correo" name="correo" value="<%=proveedor.getCorreo()%>">
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">

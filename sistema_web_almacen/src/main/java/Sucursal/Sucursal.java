@@ -2,8 +2,6 @@ package Sucursal;
 
 import Cliente.Cliente;
 import Empresa.Empresa;
-import PedidoProveedor.PedidoProveedor;
-import Proveedor.Proveedor;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -38,16 +36,10 @@ public class Sucursal implements Serializable {
     @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cliente> cliente;
     
-    @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PedidoProveedor> pedidoProveedor;
-    
-    @OneToMany(mappedBy = "sucursal", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Proveedor> proveedor;
-    
     public Sucursal() {
     }
 
-    public Sucursal(int idSucursal, String nombreSucursal, String direccionSucursal, String correoSucursal, String celularSucursal, Empresa empresa, List<Cliente> cliente, List<PedidoProveedor> pedidoProveedor, List<Proveedor> proveedor) {
+    public Sucursal(int idSucursal, String nombreSucursal, String direccionSucursal, String correoSucursal, String celularSucursal, Empresa empresa, List<Cliente> cliente) {
         this.idSucursal = idSucursal;
         this.nombreSucursal = nombreSucursal;
         this.direccionSucursal = direccionSucursal;
@@ -55,25 +47,8 @@ public class Sucursal implements Serializable {
         this.celularSucursal = celularSucursal;
         this.empresa = empresa;
         this.cliente = cliente;
-        this.pedidoProveedor = pedidoProveedor;
-        this.proveedor = proveedor;
     }
-
-    public List<PedidoProveedor> getPedidoProveedor() {
-        return pedidoProveedor;
-    }
-
-    public void setPedidoProveedor(List<PedidoProveedor> pedidoProveedor) {
-        this.pedidoProveedor = pedidoProveedor;
-    }
-
-    public List<Proveedor> getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(List<Proveedor> proveedor) {
-        this.proveedor = proveedor;
-    }
+    
 
     public List<Cliente> getCliente() {
         return cliente;

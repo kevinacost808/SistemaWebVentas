@@ -3,6 +3,7 @@ package Empresa;
 import Categoria.Categoria;
 import Comprobante.Comprobante;
 import Pago.Pago;
+import Proveedor.Proveedor;
 import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
@@ -44,6 +45,9 @@ public class Empresa implements Serializable{
     
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pago> pago;
+    
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Proveedor> proveedor;
     
     public Empresa() {
     }

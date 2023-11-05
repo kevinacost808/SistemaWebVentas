@@ -15,6 +15,9 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Agregar Pedido Proveedor</h1>
                     <br>
+                    <%
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
+                    %>
                     <form action="/sistema_web_almacen/SvPedidoProveedor" method="post">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -59,6 +62,11 @@
                                             <option value="<%=proveedor.getIdProveedor()%>"><%=proveedor.getNombreProveedor()%></option>
                                         <%  }%>
                                     </select>
+                                </div>
+                                    
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                     
                                 <div class="form-group">

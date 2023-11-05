@@ -1,7 +1,7 @@
 package PedidoProveedor;
 
+import Empresa.Empresa;
 import Proveedor.Proveedor;
-import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -33,21 +33,30 @@ public class PedidoProveedor implements Serializable {
     private Proveedor proveedor;
     
     @ManyToOne
-    @JoinColumn(name = "idSucursal")
-    private Sucursal sucursal;
+    @JoinColumn(name = "idEmpresa")
+    private Empresa empresa;
 
     public PedidoProveedor() {
     }
 
-    public PedidoProveedor(int idPedidoProveedor, String nombre, int cantidad, float precioUnidad, Date fechaPedido, Proveedor proveedor) {
+    public PedidoProveedor(int idPedidoProveedor, String nombre, int cantidad, float precioUnidad, Date fechaPedido, Proveedor proveedor, Empresa empresa) {
         this.idPedidoProveedor = idPedidoProveedor;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precioUnidad = precioUnidad;
         this.fechaPedido = fechaPedido;
         this.proveedor = proveedor;
+        this.empresa = empresa;
     }
 
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+    
     public int getIdPedidoProveedor() {
         return idPedidoProveedor;
     }

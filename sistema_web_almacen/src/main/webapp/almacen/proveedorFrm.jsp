@@ -20,6 +20,7 @@
 
             <%
                 List<String> listaProveedorRuc = (List)request.getSession().getAttribute("listaProveedorRuc");
+                int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
             %>
                 
             <form action="/sistema_web_almacen/SvProveedorRuc" method="post">
@@ -65,6 +66,11 @@
                                 <div class="form-group">
                                     <label for="correo">Correo</label>
                                     <input type="email" class="form-control" id="correo" name="correo" required>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">

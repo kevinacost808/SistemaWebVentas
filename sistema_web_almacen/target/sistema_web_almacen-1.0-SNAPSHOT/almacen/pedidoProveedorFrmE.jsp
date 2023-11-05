@@ -18,6 +18,7 @@
                     <br>
                     <%
                         PedidoProveedor pedidoProveedor = (PedidoProveedor)request.getSession().getAttribute("PedidoProveedorEditar");
+                        int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
                     %>
                     <form action="/sistema_web_almacen/SvPedidoProveedorEditar" method="post">
                         <div class="card shadow mb-4">
@@ -69,6 +70,11 @@
                                             <option value="<%=proveedor.getIdProveedor()%>" <%= seleccionado ? "selected" : "" %>><%=proveedor.getNombreProveedor()%></option>
                                         <%  }%>
                                     </select>
+                                </div>
+                                
+                                <div class="form-group" hidden>
+                                    <label for="idEmpresa">Empresa</label>
+                                    <input type="text" class="form-control" id="idEmpresa" name="idEmpresa" value="<%=idEmpresa%>" required>
                                 </div>
                                 
                                 <div class="form-group">
