@@ -3,6 +3,7 @@ package Empresa;
 import Categoria.Categoria;
 import Comprobante.Comprobante;
 import Pago.Pago;
+import Producto.Producto;
 import Proveedor.Proveedor;
 import Sucursal.Sucursal;
 import java.io.Serializable;
@@ -49,10 +50,13 @@ public class Empresa implements Serializable{
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Proveedor> proveedor;
     
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> producto;
+    
     public Empresa() {
     }
 
-    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin, List<Sucursal> sucursal, List<Categoria> categoria, List<Comprobante> comprobante, List<Pago> pago) {
+    public Empresa(int idEmpresa, String nombreEmpresa, String rucEmpresa, String correo, String celular, Date fechaInicio, Date fechaFin, List<Sucursal> sucursal, List<Categoria> categoria, List<Comprobante> comprobante, List<Pago> pago, List<Proveedor> proveedor, List<Producto> producto) {
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.rucEmpresa = rucEmpresa;
@@ -64,8 +68,26 @@ public class Empresa implements Serializable{
         this.categoria = categoria;
         this.comprobante = comprobante;
         this.pago = pago;
+        this.proveedor = proveedor;
+        this.producto = producto;
     }
 
+    public List<Producto> getProducto() {
+        return producto;
+    }
+
+    public void setProducto(List<Producto> producto) {
+        this.producto = producto;
+    }
+
+    public List<Proveedor> getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(List<Proveedor> proveedor) {
+        this.proveedor = proveedor;
+    }
+    
     public List<Pago> getPago() {
         return pago;
     }
