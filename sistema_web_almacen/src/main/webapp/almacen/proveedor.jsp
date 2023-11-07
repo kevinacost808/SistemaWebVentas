@@ -56,8 +56,10 @@
                                         
                                         <%
                                             List<Proveedor> listaProveedores = (List) request.getSession().getAttribute("listaProveedores");
-                                            
-                                            for(Proveedor proveedor: listaProveedores){
+                                            if(listaProveedores==null){
+                                                response.sendRedirect("/sistema_web_almacen/SvProveedor");
+                                            }else{
+                                                for(Proveedor proveedor: listaProveedores){
                                         %>
                                         
                                             <tr>
@@ -86,7 +88,7 @@
                                         
                                         <%
                                                 
-                                            }
+                                            }}
                                         %>
                                         
                                     </tbody>

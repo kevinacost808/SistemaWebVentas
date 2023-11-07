@@ -44,8 +44,11 @@
                                     <tbody>
                                         <%
                                         List<Comprobante> listaComprobante = (List)request.getSession().getAttribute("listaComprobante");
-                                        
-                                            for(Comprobante comprobante : listaComprobante){
+                                        if(listaComprobante==null){
+                                                response.sendRedirect("/sistema_web_almacen/SvComprobante");
+                                            }else{
+                                                for(Comprobante comprobante : listaComprobante){
+                                            
                                         %>
                                         <tr>
                                             <td name="tipoComprobante"><%=comprobante.getTipoComprobante()%></td>
@@ -66,7 +69,7 @@
                                             </td>
                                         </tr>
                                         <%
-                                            }
+                                            }}
                                         %>
                                     </tbody>
                                 </table>

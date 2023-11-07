@@ -54,6 +54,7 @@
                                 <%
                                 List<Usuario> listaUsuario = (List) request.getSession().getAttribute("listaUsuario");
                                 if(listaUsuario==null){
+                                    response.sendRedirect("/sistema_web_almacen/SvUsuario");
                                 }else{
                                     for(Usuario usuario: listaUsuario){
                             %>

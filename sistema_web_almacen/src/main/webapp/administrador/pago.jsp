@@ -44,8 +44,10 @@
                                     <tbody>
                                         <%
                                         List<Pago> listaPago = (List)request.getSession().getAttribute("listaPago");
-                                        
-                                            for(Pago pago: listaPago){
+                                        if(listaPago==null){
+                                                response.sendRedirect("/sistema_web_almacen/SvPago");
+                                            }else{
+                                                for(Pago pago: listaPago){
                                         %>
                                         <tr>
                                             <td name="tipoPago"><%=pago.getTipoPago()%></td>
@@ -66,7 +68,7 @@
                                             </td>
                                         </tr>
                                         <%
-                                            }
+                                            }}
                                         %>
                                     </tbody>
                                 </table>

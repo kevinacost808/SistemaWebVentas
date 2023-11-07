@@ -44,7 +44,9 @@
                         <tbody>
                             <%
                             List<Categoria> listaCategoria = (List)request.getSession().getAttribute("listaCategoria");
-
+                            if(listaCategoria==null){
+                                response.sendRedirect("/sistema_web_almacen/SvCategoria");
+                            }else{
                                 for(Categoria categoria: listaCategoria){
                             %>
                             <tr>
@@ -66,7 +68,7 @@
                                 </td>
                             </tr>
                             <%
-                                }
+                                }}
                             %>
                         </tbody>
                     </table>

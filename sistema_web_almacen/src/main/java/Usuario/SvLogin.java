@@ -38,9 +38,11 @@ public class SvLogin extends HttpServlet {
                 String rol = usuari.getRol().getNombreRol();
                 int idSucursal = usuari.getSucursal().getIdSucursal();
                 int idEmpresa = usuari.getSucursal().getEmpresa().getIdEmpresa();
+                String nombreUsuario = usuari.getNombreUsuario();
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("idSucursal", idSucursal);
                 sesion.setAttribute("idEmpresa", idEmpresa);
+                sesion.setAttribute("nombreUsuario", nombreUsuario);
                 switch (rol) {
                     case "ADMINISTRADOR":
                         response.sendRedirect("administrador/index.jsp");

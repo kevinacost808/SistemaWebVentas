@@ -34,6 +34,13 @@
                 Paginas
             </div>
 
+            <!-- Nav Item - Clientes -->
+            <li class="nav-item">
+                <a class="nav-link" href="/sistema_web_almacen/SvCliente">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Clientes</span></a>
+            </li>
+
             <!-- Nav Item - Inventario -->
             <li class="nav-item">
                 <a class="nav-link" href="inventario.jsp">
@@ -46,13 +53,6 @@
                 <a class="nav-link" href="/sistema_web_almacen/SvProducto">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Productos</span></a>
-            </li>
-
-            <!-- Nav Item - Clientes -->
-            <li class="nav-item">
-                <a class="nav-link" href="/sistema_web_almacen/SvCliente">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Clientes</span></a>
             </li>
 
             <!-- Nav Item - Ventas -->
@@ -136,12 +136,14 @@
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
+                        <%
+                            String nombreUsuario =(String) request.getSession().getAttribute("nombreUsuario");
+                        %>
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">NombreTienda</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=nombreUsuario%></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>

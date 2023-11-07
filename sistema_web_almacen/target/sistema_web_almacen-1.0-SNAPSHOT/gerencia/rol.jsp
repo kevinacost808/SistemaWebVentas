@@ -45,7 +45,9 @@
                         <tbody>
                             <%
                             List<Rol> listaRol = (List)request.getSession().getAttribute("listaRol");
-
+                            if(listaRol==null){
+                                response.sendRedirect("/sistema_web_almacen/SvRol");
+                            }else{
                                 for(Rol rol: listaRol){
                             %>
                             <tr>
@@ -67,7 +69,7 @@
                                 </td>
                             </tr>
                             <%
-                                }
+                                }}
                             %>
                         </tbody>
                     </table>
