@@ -1,7 +1,9 @@
 package Producto;
 
-import Empresa.Empresa;
-import Empresa.EmpresaC;
+import Categoria.Categoria;
+import Categoria.CategoriaC;
+import Sucursal.Sucursal;
+import Sucursal.SucursalC;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,7 +18,8 @@ import javax.servlet.http.HttpSession;
 public class SvProductoEditar extends HttpServlet {
     
     ProductoC productoC = new ProductoC();
-    EmpresaC empresaC = new EmpresaC();
+    SucursalC sucursalC = new SucursalC();
+    CategoriaC categoriaC = new CategoriaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,7 +34,7 @@ public class SvProductoEditar extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("productoEditar", productoEditar);
         
-        response.sendRedirect("administrador/productoFrmE.jsp");
+        response.sendRedirect("vendedor/productoFrmE.jsp");
     }
 
     @Override
@@ -46,6 +49,9 @@ public class SvProductoEditar extends HttpServlet {
         
         String codigoP = request.getParameter("codigoProducto");
         String codigoProducto = codigoP.toUpperCase();
+        
+        int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
+        Categoria categoria = categoriaC.consultarCategoriaId(idCategoria);
         
         double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
         
@@ -64,18 +70,19 @@ public class SvProductoEditar extends HttpServlet {
             e.printStackTrace();
         }
         
-        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
-        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
+        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
+        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
         
         Producto producto = new Producto();
         producto.setIdProducto(idProducto);
         producto.setMarcaProducto(marcaProducto);
         producto.setNombreProducto(nombreProducto);
         producto.setCodigoProducto(codigoProducto);
-        producto.setPrecioCompra(precioVenta);
+        producto.setCategoria(categoria);
+        producto.setPrecioVenta(precioVenta);
         producto.setPrecioCompra(precioCompra);
         producto.setFechaIngreso(fechaIngreso);
-        producto.setEmpresa(empresa);
+        producto.setSucursal(sucursal);
         
         productoC.editarProducto(producto);
         

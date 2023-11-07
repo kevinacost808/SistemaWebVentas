@@ -35,7 +35,7 @@ public class ProductoJpa {
     public void eliminarProducto(int id){
         try {
             productoJpa.destroy(id);
-        } catch (NonexistentEntityException ex) {
+        } catch (Excepcion.NonexistentEntityException ex) {
             Logger.getLogger(ProductoJpa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

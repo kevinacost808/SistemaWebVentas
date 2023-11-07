@@ -1,6 +1,9 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Producto;
 
-import Empresa.Empresa;
 import Excepcion.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
@@ -26,26 +29,17 @@ public class ProductoJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
+
     public ProductoJpaController() {
         emf = Persistence.createEntityManagerFactory("conexionPU");
     }
-
+    
     public void create(Producto producto) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Empresa empresa = producto.getEmpresa();
-            if (empresa != null) {
-                empresa = em.getReference(empresa.getClass(), empresa.getIdEmpresa());
-                producto.setEmpresa(empresa);
-            }
             em.persist(producto);
-            if (empresa != null) {
-                empresa.getProducto().add(producto);
-                empresa = em.merge(empresa);
-            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -59,22 +53,7 @@ public class ProductoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Producto persistentProducto = em.find(Producto.class, producto.getIdProducto());
-            Empresa empresaOld = persistentProducto.getEmpresa();
-            Empresa empresaNew = producto.getEmpresa();
-            if (empresaNew != null) {
-                empresaNew = em.getReference(empresaNew.getClass(), empresaNew.getIdEmpresa());
-                producto.setEmpresa(empresaNew);
-            }
             producto = em.merge(producto);
-            if (empresaOld != null && !empresaOld.equals(empresaNew)) {
-                empresaOld.getProducto().remove(producto);
-                empresaOld = em.merge(empresaOld);
-            }
-            if (empresaNew != null && !empresaNew.equals(empresaOld)) {
-                empresaNew.getProducto().add(producto);
-                empresaNew = em.merge(empresaNew);
-            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -103,11 +82,6 @@ public class ProductoJpaController implements Serializable {
                 producto.getIdProducto();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The producto with id " + id + " no longer exists.", enfe);
-            }
-            Empresa empresa = producto.getEmpresa();
-            if (empresa != null) {
-                empresa.getProducto().remove(producto);
-                empresa = em.merge(empresa);
             }
             em.remove(producto);
             em.getTransaction().commit();

@@ -1,7 +1,9 @@
 package Producto;
 
-import Empresa.Empresa;
-import Empresa.EmpresaC;
+import Categoria.Categoria;
+import Categoria.CategoriaC;
+import Sucursal.Sucursal;
+import Sucursal.SucursalC;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,8 +19,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "SvProducto", urlPatterns = {"/SvProducto"})
 public class SvProducto extends HttpServlet {
 
-    EmpresaC empresaC = new EmpresaC();
+    SucursalC sucursalC = new SucursalC();
     ProductoC productoC = new ProductoC();
+    CategoriaC categoriaC = new CategoriaC();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,21 +30,21 @@ public class SvProducto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idEmpresaStr = request.getParameter("idEmpresa");
-        int idEmpresa =0;
+        String idSucursalStr = request.getParameter("idSucursal");
+        int idSucursal =0;
         
         // Verificar si idEmpresaStr no es nulo ni está vacío
-        if (idEmpresaStr != null && !idEmpresaStr.isEmpty()) {
+        if (idSucursalStr != null && !idSucursalStr.isEmpty()) {
             try {
                 // Intentar convertir idEmpresaStr a un entero
-                idEmpresa = Integer.parseInt(idEmpresaStr);
+                idSucursal = Integer.parseInt(idSucursalStr);
             } catch (NumberFormatException e) {
                 // Manejar la excepción si idEmpresaStr no es un número válido
                 System.out.println("idEmpresa no es un número válido.");
             }
         }else{
             HttpSession sesion = request.getSession();
-            idEmpresa = (int) sesion.getAttribute("idEmpresa");
+            idSucursal = (int) sesion.getAttribute("idSucursal");
         }
         
         List<Producto> producto = new ArrayList<Producto>();
@@ -52,8 +55,8 @@ public class SvProducto extends HttpServlet {
         if (producto != null) {
             // Itera a través de la lista para encontrar el elemento deseado
             for (Producto p : producto) {    
-                Empresa empresa = p.getEmpresa();
-                if (empresa != null && empresa.getIdEmpresa() == idEmpresa) {
+                Sucursal sucursal = p.getSucursal();
+                if (sucursal != null && sucursal.getIdSucursal() == idSucursal) {
                     listaProducto.add(p);
                 }
             }
@@ -62,13 +65,12 @@ public class SvProducto extends HttpServlet {
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaProducto",listaProducto);
         
-        response.sendRedirect("administrador/producto.jsp");
+        response.sendRedirect("vendedor/producto.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idProducto = Integer.parseInt(request.getParameter("idProducto"));
         String marcaP = request.getParameter("marcaProducto");
         String marcaProducto = marcaP.toUpperCase();
         
@@ -77,6 +79,9 @@ public class SvProducto extends HttpServlet {
         
         String codigoP = request.getParameter("codigoProducto");
         String codigoProducto = codigoP.toUpperCase();
+        
+        int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
+        Categoria categoria = categoriaC.consultarCategoriaId(idCategoria);
         
         double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
         
@@ -95,17 +100,18 @@ public class SvProducto extends HttpServlet {
             e.printStackTrace();
         }
         
-        int idEmpresa = Integer.parseInt(request.getParameter("idEmpresa"));
-        Empresa empresa = empresaC.consultarEmpresaId(idEmpresa);
+        int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
+        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
         
         Producto producto = new Producto();
         producto.setMarcaProducto(marcaProducto);
         producto.setNombreProducto(nombreProducto);
         producto.setCodigoProducto(codigoProducto);
-        producto.setPrecioCompra(precioVenta);
         producto.setPrecioCompra(precioCompra);
+        producto.setCategoria(categoria);
+        producto.setPrecioVenta(precioVenta);
         producto.setFechaIngreso(fechaIngreso);
-        producto.setEmpresa(empresa);
+        producto.setSucursal(sucursal);
         
         productoC.agregarProducto(producto);
         

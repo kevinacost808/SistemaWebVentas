@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Productos -->
             <li class="nav-item">
-                <a class="nav-link" href="productos.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvProducto">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Productos</span></a>
             </li>

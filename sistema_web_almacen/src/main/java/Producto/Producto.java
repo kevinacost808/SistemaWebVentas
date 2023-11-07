@@ -1,6 +1,6 @@
 package Producto;
 
-import Empresa.Empresa;
+import Categoria.Categoria;
 import Sucursal.Sucursal;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Producto implements Serializable {
@@ -19,27 +20,50 @@ public class Producto implements Serializable {
     private String marcaProducto;
     private String nombreProducto;
     private String codigoProducto;
+    
+    @OneToOne
+    @JoinColumn(name = "idCategoria")
+    private Categoria categoria;
+    
     private double precioVenta;
     private double precioCompra;
     private Date fechaIngreso;
     
     @ManyToOne
-    @JoinColumn(name = "idEmpresa")
-    private Empresa empresa;
+    @JoinColumn(name = "idSucursal")
+    private Sucursal sucursal;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String marcaProducto, String nombreProducto, String codigoProducto, double precioVenta, double precioCompra, Date fechaIngreso, Empresa empresa) {
+    public Producto(int idProducto, String marcaProducto, String nombreProducto, String codigoProducto, Categoria categoria, double precioVenta, double precioCompra, Date fechaIngreso, Sucursal sucursal) {
         this.idProducto = idProducto;
         this.marcaProducto = marcaProducto;
         this.nombreProducto = nombreProducto;
         this.codigoProducto = codigoProducto;
+        this.categoria = categoria;
         this.precioVenta = precioVenta;
         this.precioCompra = precioCompra;
         this.fechaIngreso = fechaIngreso;
-        this.empresa = empresa;
+        this.sucursal = sucursal;
     }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+       
 
     public int getIdProducto() {
         return idProducto;
@@ -97,13 +121,4 @@ public class Producto implements Serializable {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-    
-    
 }
