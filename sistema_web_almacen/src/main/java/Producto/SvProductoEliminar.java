@@ -22,8 +22,8 @@ public class SvProductoEliminar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idProducto = Integer.parseInt(request.getParameter("idProducto"));
-        productoC.eliminarProducto(idProducto);
+        String codigoProducto = request.getParameter("codigoProducto");
+        productoC.eliminarProducto(codigoProducto);
         response.sendRedirect("SvProducto");
     }
     

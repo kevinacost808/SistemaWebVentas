@@ -14,7 +14,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Agregar Producto</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Editar Producto</h1>
                     <br>
                     <form action="/sistema_web_almacen/SvProductoEditar" method="post">
                         <%
@@ -26,11 +26,6 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Formulario de Producto</h6>
                             </div>
                             <div class="card-body">
-                                
-                                <div class="form-group" hidden="">
-                                    <label for="idProducto">ID Producto</label>
-                                    <input type="text" class="form-control" id="idProducto" name="idProducto" value="<%=producto.getIdProducto()%>" required>
-                                </div>
                                 
                                 <div class="form-group">
                                     <label for="codigoProducto">Codigo del Producto</label>

@@ -5,6 +5,7 @@
 package Producto;
 
 import Excepcion.NonexistentEntityException;
+import Excepcion.PreexistingEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -29,18 +30,23 @@ public class ProductoJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
+    
     public ProductoJpaController() {
         emf = Persistence.createEntityManagerFactory("conexionPU");
     }
-    
-    public void create(Producto producto) {
+
+    public void create(Producto producto) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(producto);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findProducto(producto.getCodigoProducto()) != null) {
+                throw new PreexistingEntityException("Producto " + producto + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -58,7 +64,7 @@ public class ProductoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = producto.getIdProducto();
+                String id = producto.getCodigoProducto();
                 if (findProducto(id) == null) {
                     throw new NonexistentEntityException("The producto with id " + id + " no longer exists.");
                 }
@@ -71,7 +77,7 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
-    public void destroy(int id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -79,7 +85,7 @@ public class ProductoJpaController implements Serializable {
             Producto producto;
             try {
                 producto = em.getReference(Producto.class, id);
-                producto.getIdProducto();
+                producto.getCodigoProducto();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The producto with id " + id + " no longer exists.", enfe);
             }
@@ -116,7 +122,7 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
-    public Producto findProducto(int id) {
+    public Producto findProducto(String id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Producto.class, id);

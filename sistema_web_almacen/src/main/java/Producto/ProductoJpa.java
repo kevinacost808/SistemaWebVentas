@@ -1,6 +1,7 @@
 package Producto;
 
 import Excepcion.NonexistentEntityException;
+import Excepcion.PreexistingEntityException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,12 +17,16 @@ public class ProductoJpa {
         return productoJpa.findProductoEntities();
     }
     
-    public Producto consultarProductoId(int id){
-        return productoJpa.findProducto(id);
+    public Producto consultarProductoId(String codigoProducto){
+        return productoJpa.findProducto(codigoProducto);
     }
     
     public void agregarProducto(Producto producto){
-        productoJpa.create(producto);
+        try {
+            productoJpa.create(producto);
+        } catch (Exception ex) {
+            Logger.getLogger(ProductoJpa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void editarProducto(Producto producto){
@@ -32,9 +37,9 @@ public class ProductoJpa {
         }
     }
     
-    public void eliminarProducto(int id){
+    public void eliminarProducto(String codigoProducto){
         try {
-            productoJpa.destroy(id);
+            productoJpa.destroy(codigoProducto);
         } catch (Excepcion.NonexistentEntityException ex) {
             Logger.getLogger(ProductoJpa.class.getName()).log(Level.SEVERE, null, ex);
         }

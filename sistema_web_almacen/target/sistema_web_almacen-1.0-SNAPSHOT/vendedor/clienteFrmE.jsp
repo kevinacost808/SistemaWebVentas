@@ -18,7 +18,6 @@
         <br>
         <%
         Cliente cliente = (Cliente)request.getSession().getAttribute("clienteEditar");
-        List<String> listaClienteDniEditar = (List)request.getSession().getAttribute("listaClienteDniEditar");
         int idSucursal = (int)request.getSession().getAttribute("idSucursal");
         SucursalC sucursalC = new SucursalC();
         Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);

@@ -101,7 +101,9 @@ public class SvProducto extends HttpServlet {
         }
         
         int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
-        Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+            Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
+        
+        boolean vendido = false;
         
         Producto producto = new Producto();
         producto.setMarcaProducto(marcaProducto);
@@ -112,6 +114,7 @@ public class SvProducto extends HttpServlet {
         producto.setPrecioVenta(precioVenta);
         producto.setFechaIngreso(fechaIngreso);
         producto.setSucursal(sucursal);
+        producto.setVendido(vendido);
         
         productoC.agregarProducto(producto);
         

@@ -13,6 +13,7 @@ Usuario\Usuario.class
 Empresa\EmpresaC.class
 Comprobante\ComprobanteJpa.class
 Cliente\SvClienteDni.class
+Producto\SvProductoBuscar.class
 Cliente\SvCliente.class
 Comprobante\Comprobante_.class
 Sucursal\Sucursal_.class

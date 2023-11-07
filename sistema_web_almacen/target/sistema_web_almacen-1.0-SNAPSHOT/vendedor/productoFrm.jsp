@@ -74,7 +74,7 @@
                                     <label for="fechaIngreso">Fecha de Ingreso</label>
                                     <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" required>
                                 </div>
-                                
+                                    
                                 <div class="form-group" hidden>
                                     <label for="idSucursal">Sucursal</label>
                                     <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=idSucursal%>" required>

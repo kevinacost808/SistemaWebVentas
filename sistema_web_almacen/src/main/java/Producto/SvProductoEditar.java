@@ -28,8 +28,8 @@ public class SvProductoEditar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idProducto = Integer.parseInt(request.getParameter("idProducto"));
-        Producto productoEditar = productoC.consultarProductoId(idProducto);
+        String codigoProducto = request.getParameter("codigoProducto");
+        Producto productoEditar = productoC.consultarProductoId(codigoProducto);
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("productoEditar", productoEditar);
@@ -40,15 +40,13 @@ public class SvProductoEditar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idProducto = Integer.parseInt(request.getParameter("idProducto"));
         String marcaP = request.getParameter("marcaProducto");
         String marcaProducto = marcaP.toUpperCase();
         
         String nombreP = request.getParameter("nombreProducto");
         String nombreProducto = nombreP.toUpperCase();
         
-        String codigoP = request.getParameter("codigoProducto");
-        String codigoProducto = codigoP.toUpperCase();
+        String codigoProducto = request.getParameter("codigoProducto");
         
         int idCategoria = Integer.parseInt(request.getParameter("idCategoria"));
         Categoria categoria = categoriaC.consultarCategoriaId(idCategoria);
@@ -73,16 +71,19 @@ public class SvProductoEditar extends HttpServlet {
         int idSucursal = Integer.parseInt(request.getParameter("idSucursal"));
         Sucursal sucursal = sucursalC.consultarSucursalId(idSucursal);
         
+        boolean vendido = false;
+        
         Producto producto = new Producto();
-        producto.setIdProducto(idProducto);
+        
+        producto.setCodigoProducto(codigoProducto);
         producto.setMarcaProducto(marcaProducto);
         producto.setNombreProducto(nombreProducto);
-        producto.setCodigoProducto(codigoProducto);
         producto.setCategoria(categoria);
         producto.setPrecioVenta(precioVenta);
         producto.setPrecioCompra(precioCompra);
         producto.setFechaIngreso(fechaIngreso);
         producto.setSucursal(sucursal);
+        producto.setVendido(vendido);
         
         productoC.editarProducto(producto);
         

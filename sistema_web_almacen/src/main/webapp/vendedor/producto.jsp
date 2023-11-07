@@ -72,14 +72,14 @@
                                                         <button type="submit" class="btn btn-info btn-circle">
                                                             <i class="fas fa-info-circle"></i>
                                                         </button>     
-                                                        <input type="hidden" name="idProducto" value="<%=producto.getIdProducto()%>">
+                                                        <input type="hidden" name="codigoProducto" value="<%=producto.getCodigoProducto()%>">
                                                     </form>
 
                                                     <form name="eliminar" action="/sistema_web_almacen/SvProductoEliminar" method="post">
                                                         <button type="submit" class="btn btn-danger btn-circle">
                                                             <i class="fas fa-trash"></i>
                                                         </button>     
-                                                        <input type="hidden" name="idProducto" value="<%=producto.getIdProducto()%>">
+                                                        <input type="hidden" name="codigoProducto" value="<%=producto.getCodigoProducto()%>">
                                                     </form>
                                                 </td>
                                             </tr>

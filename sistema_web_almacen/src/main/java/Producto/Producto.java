@@ -14,12 +14,13 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Producto implements Serializable {
+    
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
-    private int idProducto;
+    private String codigoProducto;
+    
     private String marcaProducto;
     private String nombreProducto;
-    private String codigoProducto;
+    
     
     @OneToOne
     @JoinColumn(name = "idCategoria")
@@ -33,11 +34,12 @@ public class Producto implements Serializable {
     @JoinColumn(name = "idSucursal")
     private Sucursal sucursal;
 
+    private boolean vendido;
+    
     public Producto() {
     }
 
-    public Producto(int idProducto, String marcaProducto, String nombreProducto, String codigoProducto, Categoria categoria, double precioVenta, double precioCompra, Date fechaIngreso, Sucursal sucursal) {
-        this.idProducto = idProducto;
+    public Producto(String marcaProducto, String nombreProducto, String codigoProducto, Categoria categoria, double precioVenta, double precioCompra, Date fechaIngreso, Sucursal sucursal, boolean vendido) {
         this.marcaProducto = marcaProducto;
         this.nombreProducto = nombreProducto;
         this.codigoProducto = codigoProducto;
@@ -46,7 +48,18 @@ public class Producto implements Serializable {
         this.precioCompra = precioCompra;
         this.fechaIngreso = fechaIngreso;
         this.sucursal = sucursal;
+        this.vendido = vendido;
     }
+
+    
+    public boolean isVendido() {
+        return vendido;
+    }
+
+    public void setVendido(boolean vendido) {
+        this.vendido = vendido;
+    }
+    
 
     public Sucursal getSucursal() {
         return sucursal;
@@ -62,15 +75,6 @@ public class Producto implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-       
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
     }
 
     public String getMarcaProducto() {

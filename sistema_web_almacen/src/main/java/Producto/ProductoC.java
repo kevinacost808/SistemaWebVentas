@@ -12,8 +12,8 @@ public class ProductoC {
         return productoControler.consultarProducto();
     }
     
-    public Producto consultarProductoId(int id){
-        return productoControler.consultarProductoId(id);
+    public Producto consultarProductoId(String codigoProducto){
+        return productoControler.consultarProductoId(codigoProducto);
     }
     
     public void agregarProducto(Producto producto){
@@ -24,7 +24,7 @@ public class ProductoC {
         productoControler.editarProducto(producto);
     }
     
-    public void eliminarProducto(int id){
-        productoControler.eliminarProducto(id);
+    public void eliminarProducto(String codigoProducto){
+        productoControler.eliminarProducto(codigoProducto);
     }
 }
