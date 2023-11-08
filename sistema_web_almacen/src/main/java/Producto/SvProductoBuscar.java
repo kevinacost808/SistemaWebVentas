@@ -33,7 +33,7 @@ public class SvProductoBuscar extends HttpServlet {
         
         String codigoProducto = request.getParameter("codigoProducto");
         Producto listaProductoBuscar = productoC.consultarProductoId(codigoProducto);
-        
+        System.out.println(listaProductoBuscar.getNombreProducto());
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaProductoBuscar",listaProductoBuscar);
         

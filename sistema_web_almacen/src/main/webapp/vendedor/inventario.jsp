@@ -36,6 +36,7 @@
                                             <th>Categoria</th>
                                             <th>Precio Compra</th>
                                             <th>Precio Venta</th>
+                                            <th>ESTADO</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -46,6 +47,7 @@
                                             <th>Categoria</th>
                                             <th>Precio Compra</th>
                                             <th>Precio Venta</th>
+                                            <th>ESTADO</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -64,11 +66,19 @@
                                                 <td name="idCategoria"><%= producto.getCategoria().getNombreCategoria()%></td>
                                                 <td name="precioCompra"><%= producto.getPrecioCompra()%></td>
                                                 <td name="precioVenta"><%= producto.getPrecioVenta()%></td>
+                                                <%
+                                                String estado=null;
+                                                if(producto.isVendido()==false){
+                                                    estado = "En almacen"; 
+                                                    }else{
+                                                    estado = "VENDIDO"; 
+                                                    }
+                                                %>
+                                                <td name="estado"><%=estado%></td>
+                                                <%}
+                                                }   
+                                                %>
                                             </tr>
-                                            <%
-                                                
-                                                }}
-                                        %>
                                     </tbody>
                                 </table>
                             </div>
