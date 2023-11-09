@@ -49,6 +49,7 @@ Sucursal\SvSucursalEliminar.class
 Categoria\SvCategoriaEditar.class
 Proveedor\SvProveedorRuc.class
 Proveedor\Proveedor_.class
+Cliente\SvClienteBuscar.class
 Producto\exceptions\NonexistentEntityException.class
 Usuario\SvUsuarioEditar.class
 Proveedor\SvProveedorEditar.class
