@@ -32,10 +32,22 @@ public class SvProductoBuscar extends HttpServlet {
             throws ServletException, IOException {
         
         String codigoProducto = request.getParameter("codigoProducto");
-        Producto listaProductoBuscar = productoC.consultarProductoId(codigoProducto);
-        System.out.println(listaProductoBuscar.getNombreProducto());
+        
+        Producto productoBuscar = productoC.consultarProductoId(codigoProducto);
+        String marcaProducto = productoBuscar.getMarcaProducto();
+        String nombreProducto = productoBuscar.getNombreProducto();
+        Double precioCompra = productoBuscar.getPrecioCompra();
+        Double precioVenta = productoBuscar.getPrecioVenta();
+        Boolean estado = productoBuscar.isVendido();
+        
         HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaProductoBuscar",listaProductoBuscar);
+        sesion.setAttribute("codigoProducto",codigoProducto);
+        sesion.setAttribute("marcaProducto",marcaProducto);
+        sesion.setAttribute("nombreProducto",nombreProducto);
+        sesion.setAttribute("precioCompra",precioCompra);
+        sesion.setAttribute("precioVenta",precioVenta);
+        sesion.setAttribute("estado",estado);
+        
         
         response.sendRedirect("vendedor/ventaFrm.jsp");
     }

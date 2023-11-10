@@ -1,3 +1,7 @@
+<%@page import="Pago.PagoC"%>
+<%@page import="Pago.Pago"%>
+<%@page import="Comprobante.ComprobanteC"%>
+<%@page import="Comprobante.Comprobante"%>
 <%@page import="Categoria.CategoriaC"%>
 <%@page import="Categoria.Categoria"%>
 <%@page import="java.util.List"%>
@@ -19,11 +23,7 @@
     <div class="card shadow mb-4">
         
         <%
-            List<String> clienteBuscarDni = (List)request.getSession().getAttribute("clienteBuscarDni");
-            List<String> clienteBuscar = (List)request.getSession().getAttribute("clienteBuscar");
-            
-            List<String> listaProductoBuscar = (List)request.getSession().getAttribute("listaProductoBuscar");
-            int idSucursal = (int)request.getSession().getAttribute("idSucursal");
+            request.getSession().getAttribute("idSucursal");
         %>
 
         <form action="/sistema_web_almacen/SvClienteBuscar" method="post">
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="dni">DNI</label>
-                    <input type="text" class="form-control" id="dni" name="dni" value="<%=clienteBuscarDni!=null?clienteBuscarDni:""%>">
+                    <input type="text" class="form-control" id="dni" name="dni" value="<%=request.getSession().getAttribute("clienteBuscarDni")!=null?request.getSession().getAttribute("clienteBuscarDni"):""%>">
                     <br>
                     <button id="cargarDni" type="submit" class="btn btn-info btn-circle">
                         <i class="fas fa-fw fa-search"></i>
@@ -49,7 +49,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="codigoProducto">Codigo</label>
-                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<%=listaProductoBuscar!=null?listaProductoBuscar.get(0):""%>">
+                    <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<%=request.getSession().getAttribute("codigoProducto")!=null?request.getSession().getAttribute("codigoProducto"):""%>">
                     <br>
                     <button id="cargarCodigo" type="submit" class="btn btn-info btn-circle">
                         <i class="fas fa-fw fa-search"></i>
@@ -67,37 +67,96 @@
                     
                     <div class="form-group" hidden>
                         <label for="dni">Dni</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<%=clienteBuscarDni!=null?clienteBuscarDni:""%>" required readonly>
+                        <input type="text" class="form-control" id="dni" name="dni" value="<%=request.getSession().getAttribute("clienteBuscarDni")!=null?request.getSession().getAttribute("clienteBuscarDni"):""%>" required readonly>
                     </div>
                     
                     <div class="form-group">
                         <label for="dni">Nombre Cliente</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<%=clienteBuscar!=null?clienteBuscar:""%>" required readonly>
+                        <input type="text" class="form-control" id="dni" name="dni" value="<%=request.getSession().getAttribute("clienteBuscar")!=null?request.getSession().getAttribute("clienteBuscar"):""%>" required readonly>
                     </div>
                     <hr>
+                    
+                    <div class="form-group" hidden>
+                        <label for="codigoProducto">Codigo Producto</label>
+                        <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<%=request.getSession().getAttribute("codigoProducto")!=null?request.getSession().getAttribute("codigoProducto"):""%>" required readonly>
+                    </div>
+                    
                     <div class="form-group">
-                        <label for="marcaProducto">Marca</label>
-                        <input type="text" class="form-control" id="marcaProducto" name="marcaProducto" value="<%=listaProductoBuscar!=null?listaProductoBuscar.get(1):""%>" required readonly>
+                        <label for="marcaProducto">Marca Producto</label>
+                        <input type="text" class="form-control" id="marcaProducto" name="marcaProducto" value="<%=request.getSession().getAttribute("marcaProducto")!=null?request.getSession().getAttribute("marcaProducto"):""%>" required readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="nombreProducto">Nombre</label>
-                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" value="<%=listaProductoBuscar!=null?listaProductoBuscar.get(2):""%>" required readonly>
+                        <label for="nombreProducto">Nombre Producto</label>
+                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" value="<%=request.getSession().getAttribute("nombreProducto")!=null?request.getSession().getAttribute("nombreProducto"):""%>" required readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="precioCompra">Precio de Compra</label>
-                        <input type="text" class="form-control" id="precioCompra" name="precioCompra" value="<%=listaProductoBuscar!=null?listaProductoBuscar.get(4):""%>" required readonly>
+                        <input type="text" class="form-control" id="precioCompra" name="precioCompra" value="<%=request.getSession().getAttribute("precioCompra")!=null?request.getSession().getAttribute("precioCompra"):""%>" required readonly>
                     </div>
 
                     <div class="form-group">
                         <label for="precioVenta">Precio de Venta</label>
-                        <input type="text" class="form-control" id="precioVenta" name="precioVenta" value="<%=listaProductoBuscar!=null?listaProductoBuscar.get(5):""%>" required>
+                        <input type="text" class="form-control" id="precioVenta" name="precioVenta" value="<%=request.getSession().getAttribute("precioVenta")!=null?request.getSession().getAttribute("precioVenta"):""%>" required>
                     </div>
-
+                    
+                    <%
+                        Boolean estado = (Boolean) request.getSession().getAttribute("estado");
+                        String estadoo = null;
+                        if (estado != null && estado == false) {
+                            estadoo = "EN ALMACEN";
+                        } else {
+                            estadoo = "VENDIDO";
+                        }
+                    %>
+                    
+                    <div class="form-group">
+                        <label for="estado">Estado Producto</label>
+                        <input type="text" class="form-control" id="estado" name="estado" value="<%=estadoo!=null?estadoo:""%>" required readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="idComprobante">Tipo Comprobante</label>
+                        <select class="form-control" id="idComprobante" name="idComprobante">
+                            <%
+                                List<Comprobante> listaComprobante = (List<Comprobante>)request.getSession().getAttribute("listaComprobante");
+                                if (listaComprobante == null) {
+                                    ComprobanteC comprobanteC = new ComprobanteC();
+                                    // La lista de proveedores no está en la sesión, obténla de la base de datos
+                                    listaComprobante = comprobanteC.consultarComprobante();
+                                    // Al obtenerla, guárdala en la sesión para futuros accesos
+                                    request.getSession().setAttribute("listaComprobante", listaComprobante);
+                                }
+                                for(Comprobante comprobante : listaComprobante ){
+                            %>
+                                <option value="<%=comprobante.getIdComprobante()%>"><%=comprobante.getTipoComprobante()%></option>
+                            <%  }%>
+                        </select>
+                    </div>
+                        
+                    <div class="form-group">
+                        <label for="idComprobante">Tipo Pago</label>
+                        <select class="form-control" id="idComprobante" name="idComprobante">
+                            <%
+                                List<Pago> listaPago = (List<Pago>)request.getSession().getAttribute("listaPago");
+                                if (listaPago == null) {
+                                    PagoC pagoC = new PagoC();
+                                    // La lista de proveedores no está en la sesión, obténla de la base de datos
+                                    listaPago = pagoC.consultarPago();
+                                    // Al obtenerla, guárdala en la sesión para futuros accesos
+                                    request.getSession().setAttribute("listaPago", listaPago);
+                                }
+                                for(Pago pago : listaPago ){
+                            %>
+                                <option value="<%=pago.getIdPago()%>"><%=pago.getTipoPago()%></option>
+                            <%  }%>
+                        </select>
+                    </div>
+¿
                     <div class="form-group" hidden>
                         <label for="idSucursal">Sucursal</label>
-                        <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=idSucursal%>" required readonly>
+                        <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=request.getSession().getAttribute("idSucursal")%>" required readonly>
                     </div>
 
                     <div class="form-group">
