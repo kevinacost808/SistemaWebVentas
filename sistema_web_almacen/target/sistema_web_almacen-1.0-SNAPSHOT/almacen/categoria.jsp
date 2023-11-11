@@ -59,12 +59,34 @@
                                             <input type="hidden" name="idCategoria" value="<%=categoria.getIdCategoria()%>">
                                         </form>
 
-                                        <form name="eliminar" action="/sistema_web_almacen/SvCategoriaEliminar" method="post">
-                                            <button type="submit" class="btn btn-danger btn-circle">
+                                        <form name="eliminarCategoria" action="/sistema_web_almacen/SvCategoriaEliminar" method="post">
+                                            <button type="button" class="btn btn-danger btn-circle" onclick="mostrarModalCategoria('<%=categoria.getIdCategoria()%>')">
                                                 <i class="fas fa-trash"></i>
-                                            </button>     
+                                            </button>
                                             <input type="hidden" name="idCategoria" value="<%=categoria.getIdCategoria()%>">
                                         </form>
+
+                                        <!-- Logout Modal con id único para las categorías -->
+                                        <div class="modal fade" id="logoutModalCategoria_<%=categoria.getIdCategoria()%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Categoría</h5>
+                                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>¿Está seguro de que desea eliminar esta categoría?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                        <a class="btn btn-primary" href="#" onclick="eliminarCategoria('<%=categoria.getIdCategoria()%>')">Eliminar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                 </td>
                             </tr>
                             <%
@@ -81,4 +103,25 @@
 
 </div>
 <!-- End of Main Content -->
+<script>
+    function mostrarModalCategoria(idCategoria) {
+        // Muestra el modal correspondiente al botón de eliminar categoría
+        $('#logoutModalCategoria_' + idCategoria).modal('show');
+
+        // Si el usuario confirma la eliminación, envía la solicitud al servidor
+        $('#logoutModalCategoria_' + idCategoria + ' .btn-primary').click(function () {
+            // Realiza la solicitud de eliminación al servidor usando AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/sistema_web_almacen/SvCategoriaEliminar',
+                data: { idCategoria: idCategoria },
+                success: function (data) {
+                    // Puedes realizar acciones adicionales después de la eliminación, si es necesario
+                    // Por ejemplo, recargar la página o actualizar la lista de categorías
+                    location.reload();
+                }
+            });
+        });
+    }
+</script>
 <%@include file="componentes/bodyFinal.jsp" %>

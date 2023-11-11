@@ -60,12 +60,33 @@
                                                         <input type="hidden" name="idComprobante" value="<%=comprobante.getIdComprobante()%>">
                                                     </form>
 
+                                                    <!-- Agrega el idComprobante como un identificador único para el botón y el modal -->
                                                     <form name="eliminar" action="/sistema_web_almacen/SvComprobanteEliminar" method="post">
-                                                        <button type="submit" class="btn btn-danger btn-circle">
+                                                        <button type="button" class="btn btn-danger btn-circle" onclick="mostrarModal('<%=comprobante.getIdComprobante()%>')">
                                                             <i class="fas fa-trash"></i>
-                                                        </button>     
+                                                        </button>
                                                         <input type="hidden" name="idComprobante" value="<%=comprobante.getIdComprobante()%>">
                                                     </form>
+
+                                                    <div class="modal fade" id="logoutModal_<%=comprobante.getIdComprobante()%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Comprobante</h5>
+                                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>¿Está seguro de que desea eliminar este comprobante?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                                    <a class="btn btn-primary" href="#" onclick="eliminarComprobante('<%=comprobante.getIdComprobante()%>')">Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
                                             </td>
                                         </tr>
                                         <%
@@ -82,4 +103,25 @@
 
             </div>
             <!-- End of Main Content -->
+            <script>
+                function mostrarModal(idComprobante) {
+                    // Muestra el modal correspondiente al botón de eliminar
+                    $('#logoutModal_' + idComprobante).modal('show');
+
+                    // Si el usuario confirma la eliminación, envía la solicitud al servidor
+                    $('#logoutModal_' + idComprobante + ' .btn-primary').click(function () {
+                        // Realiza la solicitud de eliminación al servidor usando AJAX
+                        $.ajax({
+                            type: 'POST',
+                            url: '/sistema_web_almacen/SvComprobanteEliminar',
+                            data: { idComprobante: idComprobante },
+                            success: function (data) {
+                                // Puedes realizar acciones adicionales después de la eliminación, si es necesario
+                                // Por ejemplo, recargar la página o actualizar la lista de comprobantes
+                                location.reload();
+                            }
+                        });
+                    });
+                }
+            </script>
 <%@include file="componentes/bodyFinal.jsp" %>

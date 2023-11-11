@@ -77,12 +77,33 @@
                                                         <input type="hidden" name="idProveedor" value="<%=proveedor.getIdProveedor()%>">
                                                     </form>
 
-                                                    <form name="eliminar" action="/sistema_web_almacen/SvProveedorEliminar" method="post">
-                                                        <button type="submit" class="btn btn-danger btn-circle">
+                                                    <form name="eliminarProveedor" action="/sistema_web_almacen/SvProveedorEliminar" method="post">
+                                                        <button type="button" class="btn btn-danger btn-circle" onclick="mostrarModalProveedor('<%=proveedor.getIdProveedor()%>')">
                                                             <i class="fas fa-trash"></i>
-                                                        </button>     
+                                                        </button>
                                                         <input type="hidden" name="idProveedor" value="<%=proveedor.getIdProveedor()%>">
                                                     </form>
+
+                                                    <!-- Logout Modal con id único para los proveedores -->
+                                                    <div class="modal fade" id="logoutModalProveedor_<%=proveedor.getIdProveedor()%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Proveedor</h5>
+                                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>¿Está seguro de que desea eliminar este proveedor?</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                                    <a class="btn btn-primary" href="#" onclick="eliminarProveedor('<%=proveedor.getIdProveedor()%>')">Eliminar</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         
@@ -118,5 +139,26 @@
 
     </div>
     <!-- End of Page Wrapper -->
+    <script>
+        function mostrarModalProveedor(idProveedor) {
+            // Muestra el modal correspondiente al botón de eliminar proveedor
+            $('#logoutModalProveedor_' + idProveedor).modal('show');
+
+            // Si el usuario confirma la eliminación, envía la solicitud al servidor
+            $('#logoutModalProveedor_' + idProveedor + ' .btn-primary').click(function () {
+                // Realiza la solicitud de eliminación al servidor usando AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: '/sistema_web_almacen/SvProveedorEliminar',
+                    data: { idProveedor: idProveedor },
+                    success: function (data) {
+                        // Puedes realizar acciones adicionales después de la eliminación, si es necesario
+                        // Por ejemplo, recargar la página o actualizar la lista de proveedores
+                        location.reload();
+                    }
+                });
+            });
+        }
+    </script>
     
 <%@include file="componentes/bodyFinal.jsp" %>
