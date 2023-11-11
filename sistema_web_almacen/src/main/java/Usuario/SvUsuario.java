@@ -73,11 +73,9 @@ public class SvUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomb = request.getParameter("nombre");
-        String nombre = nomb.toUpperCase();
+        String nombre = request.getParameter("nombre");
         
-        String pass = request.getParameter("password");
-        String password = pass.toUpperCase();
+        String password = request.getParameter("password");
         
         int idRol = Integer.parseInt(request.getParameter("idRol"));
         Rol rol = rolC.consultarRolId(idRol);

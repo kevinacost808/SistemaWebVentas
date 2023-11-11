@@ -2,8 +2,6 @@ package Comprobante;
 
 import Empresa.Empresa;
 import Empresa.EmpresaC;
-import Sucursal.Sucursal;
-import Sucursal.SucursalC;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

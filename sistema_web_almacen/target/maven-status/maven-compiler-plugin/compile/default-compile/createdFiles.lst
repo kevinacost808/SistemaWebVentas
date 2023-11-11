@@ -2,15 +2,12 @@ Empresa\EmpresaJpa.class
 Empresa\SvEmpresaEliminar.class
 PedidoProveedor\PedidoProveedorJpa.class
 Pago\Pago_.class
-Venta\exceptions\NonexistentEntityException.class
 Cliente\SvClienteEliminar.class
 Cliente\SvClienteEditar.class
 Proveedor\SvProveedorEliminar.class
-Venta\exceptions\PreexistingEntityException.class
 Proveedor\SvProveedor.class
 Pago\SvPagoEliminar.class
 Rol\Rol_.class
-Producto\exceptions\IllegalOrphanException.class
 Usuario\Usuario.class
 Empresa\EmpresaC.class
 Comprobante\ComprobanteJpa.class
@@ -56,7 +53,6 @@ Categoria\SvCategoriaEditar.class
 Proveedor\SvProveedorRuc.class
 Proveedor\Proveedor_.class
 Cliente\SvClienteBuscar.class
-Producto\exceptions\NonexistentEntityException.class
 Usuario\SvUsuarioEditar.class
 Venta\VentaJpa.class
 Proveedor\SvProveedorEditar.class
@@ -98,7 +94,6 @@ Usuario\SvLogin.class
 Producto\ProductoC.class
 Empresa\Empresa_.class
 Empresa\SvEmpresaEditar.class
-Venta\exceptions\IllegalOrphanException.class
 Pago\PagoC.class
 Categoria\SvCategoriaEliminar.class
 Empresa\SvEmpresa.class
@@ -106,7 +101,6 @@ Pago\PagoJpaController.class
 Categoria\Categoria_.class
 Producto\SvProductoEliminar.class
 Venta\Venta.class
-Producto\exceptions\PreexistingEntityException.class
 Usuario\SvSucursalUsuario.class
 Pago\Pago.class
 Rol\RolJpa.class

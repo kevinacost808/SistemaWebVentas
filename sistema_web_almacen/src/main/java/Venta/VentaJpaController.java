@@ -1,6 +1,6 @@
 package Venta;
 
-import Venta.exceptions.NonexistentEntityException;
+import Excepcion.NonexistentEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;

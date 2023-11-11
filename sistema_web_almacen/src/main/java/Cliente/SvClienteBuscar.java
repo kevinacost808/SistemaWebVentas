@@ -24,6 +24,7 @@ public class SvClienteBuscar extends HttpServlet {
         
         List<Cliente> cliente = new ArrayList<Cliente>();
         cliente = clienteC.consultarCliente();
+        int clienteId = 0;
         
         String clienteBuscarDni = null;
         String clienteBuscar = null;
@@ -31,18 +32,17 @@ public class SvClienteBuscar extends HttpServlet {
         if(dni!= null && cliente!=null){
             for(Cliente clien: cliente){
                 if(clien.getDni().equals(dni)){
-                    System.out.println("a");
+                    clienteId = clien.getIdCliente();
                     clienteBuscarDni = clien.getDni();
                     clienteBuscar = clien.getNombre() + " " + clien.getApellido();
                     break;
                 }
             }
-            System.out.println(clienteBuscarDni);
-            System.out.println(clienteBuscar);
         }
         HttpSession sesion = request.getSession();
         sesion.setAttribute("clienteBuscarDni",clienteBuscarDni);
         sesion.setAttribute("clienteBuscar",clienteBuscar);
+        sesion.setAttribute("clienteId",clienteId);
         
         response.sendRedirect("vendedor/ventaFrm.jsp");
     }

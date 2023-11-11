@@ -1,5 +1,7 @@
 package Venta;
 
+import Producto.Producto;
+import Producto.ProductoC;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "SvVenta", urlPatterns = {"/SvVenta"})
 public class SvVenta extends HttpServlet {
 
+    ProductoC productoC = new ProductoC();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -28,7 +32,17 @@ public class SvVenta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String idCliente = request.getParameter("clienteId");
+        String codigoProducto = request.getParameter("codigoProducto");
+        double precioVenta = Double.parseDouble(request.getParameter("precioVenta"));
+        
+        Producto producto = new Producto();
+        producto.setCodigoProducto(codigoProducto);
+        producto.setPrecioVenta(precioVenta);
+        producto.setVendido(true);
+        productoC.editarProducto(producto);
+        
+        
     }
 
     @Override

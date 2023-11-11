@@ -65,21 +65,11 @@
                 </div>
                 <div class="card-body">
                     
-                    <div class="form-group" hidden>
-                        <label for="dni">Dni</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<%=request.getSession().getAttribute("clienteBuscarDni")!=null?request.getSession().getAttribute("clienteBuscarDni"):""%>" required readonly>
-                    </div>
-                    
                     <div class="form-group">
                         <label for="dni">Nombre Cliente</label>
                         <input type="text" class="form-control" id="dni" name="dni" value="<%=request.getSession().getAttribute("clienteBuscar")!=null?request.getSession().getAttribute("clienteBuscar"):""%>" required readonly>
                     </div>
                     <hr>
-                    
-                    <div class="form-group" hidden>
-                        <label for="codigoProducto">Codigo Producto</label>
-                        <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<%=request.getSession().getAttribute("codigoProducto")!=null?request.getSession().getAttribute("codigoProducto"):""%>" required readonly>
-                    </div>
                     
                     <div class="form-group">
                         <label for="marcaProducto">Marca Producto</label>
@@ -152,11 +142,6 @@
                                 <option value="<%=pago.getIdPago()%>"><%=pago.getTipoPago()%></option>
                             <%  }%>
                         </select>
-                    </div>
-¿
-                    <div class="form-group" hidden>
-                        <label for="idSucursal">Sucursal</label>
-                        <input type="text" class="form-control" id="idSucursal" name="idSucursal" value="<%=request.getSession().getAttribute("idSucursal")%>" required readonly>
                     </div>
 
                     <div class="form-group">
