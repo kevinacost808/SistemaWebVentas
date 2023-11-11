@@ -64,8 +64,13 @@ public class SvLogin extends HttpServlet {
             }
         }
 
-        if (!usuarioValido) {
-            response.sendRedirect("login.jsp"); // Redirección si no se encontró un usuario válido
+        if (usuarioValido) {
+            HttpSession sesion = request.getSession();
+            sesion.setAttribute("inicioSesionExitoso", true);
+        } else {
+            HttpSession sesion = request.getSession();
+            sesion.setAttribute("inicioSesionExitoso", false);
+            response.sendRedirect("login.jsp");
         }
     }
 

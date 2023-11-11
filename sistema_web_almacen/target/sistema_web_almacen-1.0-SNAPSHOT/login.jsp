@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 
@@ -42,8 +43,26 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
                                     </div>
-                                    
-                                    <form action="/sistema_web_almacen/SvLogin" method="post">
+                                    <%
+                                    Boolean inicioSesionExitoso = (Boolean) session.getAttribute("inicioSesionExitoso");
+                                    if (inicioSesionExitoso != null) {
+                                        if (inicioSesionExitoso) {
+                                    %>
+                                            <div class="alert alert-success" role="alert">
+                                                Inicio de sesión exitoso.
+                                            </div>
+                                    <%
+                                        } else {
+                                    %>
+                                            <div class="alert alert-danger" role="alert">
+                                                Datos incorrectos. Por favor, intente nuevamente.
+                                            </div>
+                                    <%
+                                        }
+                                        session.removeAttribute("inicioSesionExitoso"); // Limpiar el atributo de la sesión después de mostrar el mensaje
+                                    }
+                                    %>
+                                    <form action="/sistema_web_almacen/SvLogin" method="post" id="loginForm">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="usuario" name="usuario" aria-describedby="emailHelp"
@@ -60,10 +79,28 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block" onclick="iniciarSesion()">
                                             <span class="text">Login</span>
                                         </button>
                                         <hr>
+                                        <div id="mensajeInicioSesion" style="display:none;">
+                                            <!-- Mensaje de "Iniciando sesión" o "Datos incorrectos" -->
+                                        </div>
+                                        <!-- Modal de carga -->
+                                        <div class="modal" id="cargandoModal" style="display:none;">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!-- Icono de carga -->
+                                                    <div class="spinner-border text-primary" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                    <!-- Mensaje opcional -->
+                                                    <div class="modal-body">
+                                                        Iniciando sesión...
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -87,6 +124,23 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
+    <script>
+    function mostrarMensajeInicioSesion() {
+        var mensajeDiv = document.getElementById("mensajeInicioSesion");
+        mensajeDiv.style.display = "block";
+        mensajeDiv.innerHTML = "Iniciando sesión..."; // Puedes personalizar el mensaje según tus necesidades
+    }
+    function iniciarSesion() {
+        // Mostrar el modal de carga
+        $('#cargandoModal').modal('show');
+
+        // Enviar el formulario después de un breve retraso para que el modal tenga tiempo de mostrarse
+        setTimeout(function() {
+            document.getElementById('loginForm').submit();
+        }, 500);
+    }
+    
+    </script>
 </body>
 
 </html>
