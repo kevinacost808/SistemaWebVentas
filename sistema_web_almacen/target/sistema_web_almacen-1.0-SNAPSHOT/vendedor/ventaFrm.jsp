@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="Pago.PagoC"%>
 <%@page import="Pago.Pago"%>
 <%@page import="Comprobante.ComprobanteC"%>
@@ -24,6 +25,7 @@
         
         <%
             request.getSession().getAttribute("idSucursal");
+            int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
         %>
 
         <form action="/sistema_web_almacen/SvClienteBuscar" method="post">
@@ -110,37 +112,43 @@
                         <label for="idComprobante">Tipo Comprobante</label>
                         <select class="form-control" id="idComprobante" name="idComprobante">
                             <%
-                                List<Comprobante> listaComprobante = (List<Comprobante>)request.getSession().getAttribute("listaComprobante");
-                                if (listaComprobante == null) {
+                                List<Comprobante> listaC = new ArrayList<Comprobante>();
+                                List<Comprobante> comprobant = new ArrayList<Comprobante>();
+                                listaC=null;
+                                if (listaC == null) {
                                     ComprobanteC comprobanteC = new ComprobanteC();
                                     // La lista de proveedores no está en la sesión, obténla de la base de datos
-                                    listaComprobante = comprobanteC.consultarComprobante();
-                                    // Al obtenerla, guárdala en la sesión para futuros accesos
-                                    request.getSession().setAttribute("listaComprobante", listaComprobante);
+                                    comprobant = comprobanteC.consultarComprobante();
+                                    for(Comprobante c: comprobant){
+                                        if(c.getEmpresa().getIdEmpresa() == idEmpresa){%>
+                                            <option value="<%=c.getIdComprobante()%>"><%=c.getTipoComprobante()%></option>
+                                        <%}
+                                    }
                                 }
-                                for(Comprobante comprobante : listaComprobante ){
                             %>
-                                <option value="<%=comprobante.getIdComprobante()%>"><%=comprobante.getTipoComprobante()%></option>
-                            <%  }%>
+                                
                         </select>
                     </div>
                         
                     <div class="form-group">
-                        <label for="idComprobante">Tipo Pago</label>
-                        <select class="form-control" id="idComprobante" name="idComprobante">
+                        <label for="idPago">Tipo Pago</label>
+                        <select class="form-control" id="idPago" name="idPago">
                             <%
-                                List<Pago> listaPago = (List<Pago>)request.getSession().getAttribute("listaPago");
-                                if (listaPago == null) {
+                                List<Pago> listaP = new ArrayList<Pago>();
+                                List<Pago> pag = new ArrayList<Pago>();
+                                listaP=null;
+                                if (listaP == null) {
                                     PagoC pagoC = new PagoC();
                                     // La lista de proveedores no está en la sesión, obténla de la base de datos
-                                    listaPago = pagoC.consultarPago();
-                                    // Al obtenerla, guárdala en la sesión para futuros accesos
-                                    request.getSession().setAttribute("listaPago", listaPago);
+                                    pag = pagoC.consultarPago();
+                                    for(Pago p: pag){
+                                        if(p.getEmpresa().getIdEmpresa()==idEmpresa){%>
+                                            <option value="<%=p.getIdPago()%>"><%=p.getTipoPago()%></option>
+                                        <%}
+                                    }
                                 }
-                                for(Pago pago : listaPago ){
                             %>
-                                <option value="<%=pago.getIdPago()%>"><%=pago.getTipoPago()%></option>
-                            <%  }%>
+
                         </select>
                     </div>
 

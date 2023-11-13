@@ -1,6 +1,8 @@
 package Producto;
 
+import Categoria.Categoria;
 import java.io.IOException;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,16 +38,20 @@ public class SvProductoBuscar extends HttpServlet {
         Producto productoBuscar = productoC.consultarProductoId(codigoProducto);
         String marcaProducto = productoBuscar.getMarcaProducto();
         String nombreProducto = productoBuscar.getNombreProducto();
+        Categoria categoria = productoBuscar.getCategoria();
         Double precioCompra = productoBuscar.getPrecioCompra();
         Double precioVenta = productoBuscar.getPrecioVenta();
+        Date fechaIngreso = productoBuscar.getFechaIngreso();
         Boolean estado = productoBuscar.isVendido();
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("codigoProducto",codigoProducto);
         sesion.setAttribute("marcaProducto",marcaProducto);
         sesion.setAttribute("nombreProducto",nombreProducto);
+        sesion.setAttribute("categoria",categoria);
         sesion.setAttribute("precioCompra",precioCompra);
         sesion.setAttribute("precioVenta",precioVenta);
+        sesion.setAttribute("fechaIngreso",fechaIngreso);
         sesion.setAttribute("estado",estado);
         
         
