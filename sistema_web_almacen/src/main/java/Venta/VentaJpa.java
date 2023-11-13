@@ -23,7 +23,7 @@ public class VentaJpa {
         ventaJpa.create(venta);
     }
     
-    public void editarUsuario(Venta venta){
+    public void editarVenta(Venta venta){
         try {
             ventaJpa.edit(venta);
         } catch (Exception ex) {

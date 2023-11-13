@@ -20,8 +20,8 @@ public class VentaC {
         ventaJpa.agregarVenta(venta);
     }
     
-    public void editarUsuario(Venta venta){
-        ventaJpa.editarUsuario(venta);
+    public void editarVenta(Venta venta){
+        ventaJpa.editarVenta(venta);
     }
     
     public void eliminarVentaId(int id){

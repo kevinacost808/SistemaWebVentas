@@ -68,10 +68,14 @@
                     <h6 class="m-0 font-weight-bold text-primary">Formulario de Venta</h6>
                 </div>
                 <div class="card-body">
+                    <div class="form-group" hidden>
+                        <label for="idVenta">Id Venta</label>
+                        <input type="text" class="form-control" id="idVenta" name="idVenta" value="<%=venta.getIdVenta()%>" required readonly>
+                    </div>
                     
                     <div class="form-group">
                         <label for="dni">Nombre Cliente</label>
-                        <input type="text" class="form-control" id="dni" name="dni" value="<%=venta.getCliente().getDni()%>" required readonly>
+                        <input type="text" class="form-control" id="dni" name="dni" value="<%=venta.getCliente().getNombre()%> <%=venta.getCliente().getApellido()%>" required readonly>
                     </div>
                     <hr>
                     
@@ -123,7 +127,7 @@
                                     comprobant = comprobanteC.consultarComprobante();
                                     for(Comprobante c: comprobant){
                                         if(c.getEmpresa().getIdEmpresa() == idEmpresa){%>
-                                            <option value="<%=venta.getComprobante()%>"><%=c.getTipoComprobante()%></option>
+                                            <option value="<%=venta.getComprobante().getIdComprobante()%>"><%=c.getTipoComprobante()%></option>
                                         <%}
                                     }
                                 }
@@ -145,7 +149,7 @@
                                     pag = pagoC.consultarPago();
                                     for(Pago p: pag){
                                         if(p.getEmpresa().getIdEmpresa()==idEmpresa){%>
-                                            <option value="<%=venta.getPago()%>"><%=p.getTipoPago()%></option>
+                                            <option value="<%=p.getIdPago()%>"><%=p.getTipoPago()%></option>
                                         <%}
                                     }
                                 }
