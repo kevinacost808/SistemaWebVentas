@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="Venta.Venta"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -31,47 +33,61 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id Venta</th>
-                                            <th>Producto</th>
-                                            <th>IMEI</th>
-                                            <th>Detalle</th>
-                                            <th>Precio de Venta</th>
                                             <th>Cliente</th>
+                                            <th>Producto</th>
+                                            <th>Precio Venta</th>
+                                            <th>Comprobante</th>
+                                            <th>Pago</th>
                                             <th>Fecha de Venta</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Id Venta</th>
-                                            <th>Producto</th>
-                                            <th>IMEI</th>
-                                            <th>Detalle</th>
-                                            <th>Precio de Venta</th>
                                             <th>Cliente</th>
+                                            <th>Producto</th>
+                                            <th>Precio Venta</th>
+                                            <th>Comprobante</th>
+                                            <th>Pago</th>
                                             <th>Fecha de Venta</th>
                                             <th colspan="2">Acciones</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>A23 ULTRA</td>
-                                            <td>369321654987</td>
-                                            <td>Sin regalo</td>
-                                            <td>$520,800</td>
-                                            <td>75825936</td>
-                                            <td>2011/04/25</td>
-                                            <td>
-                                                <a href="formularios/editar/frmVentaE.jsp" class="btn btn-info btn-circle">
-                                                    <i class="fas fa-info-circle"></i>
-                                                </a>
+                                        <%
+                                            List<Venta> listaVenta = (List) request.getSession().getAttribute("listaVenta");
+                                            if(listaVenta==null){
+                                                response.sendRedirect("/sistema_web_almacen/SvVenta");
+                                            }else{
+                                                for(Venta venta: listaVenta){
 
-                                                <button class="btn btn-danger btn-circle">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                        %>
+                                        <tr>
+                                            <td name="cliente"><%=venta.getCliente().getNombre()%> <%=venta.getCliente().getApellido()%></td>
+                                            <td name="producto"><%=venta.getProducto().getMarcaProducto()%> <%=venta.getProducto().getNombreProducto()%></td>
+                                            <td name="precioVenta"><%=venta.getProducto().getPrecioVenta()%></td>
+                                            <td name="comprobante"><%=venta.getComprobante().getTipoComprobante()%></td>
+                                            <td name="pago"><%=venta.getPago().getTipoPago()%></td>
+                                            <td>
+                                                <form name="editar" action="/sistema_web_almacen/SvVentaEditar" method="get">
+                                                    <button type="submit" class="btn btn-info btn-circle">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </button>     
+                                                    <input type="hidden" name="idVenta" value="<%=venta.getIdVenta()%>">
+                                                </form>
+
+                                                <form name="eliminar" action="/sistema_web_almacen/SvVentaEliminar" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-circle">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>     
+                                                    <input type="hidden" name="idVenta" value="<%=venta.getIdVenta()%>">
+                                                </form>
                                             </td>
                                         </tr>
+                                        <%
+                                                
+                                                }}
+                                        %>
                                     </tbody>
                                 </table>
                             </div>

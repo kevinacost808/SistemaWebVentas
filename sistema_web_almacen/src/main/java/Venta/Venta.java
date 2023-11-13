@@ -51,7 +51,7 @@ public class Venta implements Serializable {
         this.sucursal = sucursal;
     }
     
-
+    
     public Sucursal getSucursal() {
         return sucursal;
     }
