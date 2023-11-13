@@ -54,7 +54,6 @@
                                         <%
                                             List<Producto> listaProducto = (List) request.getSession().getAttribute("listaProducto");
                                             if(listaProducto==null){
-                                                response.sendRedirect("/sistema_web_almacen/SvProducto");
                                             }else{
                                                 for(Producto producto: listaProducto){
 

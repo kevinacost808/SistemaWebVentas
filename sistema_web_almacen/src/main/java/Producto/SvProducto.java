@@ -47,7 +47,7 @@ public class SvProducto extends HttpServlet {
             idSucursal = (int) sesion.getAttribute("idSucursal");
         }
         
-        List<Producto> producto = new ArrayList<Producto>();
+        List<Producto> producto = new ArrayList<>();
         producto = productoC.consultarProducto();
         
         List<Producto> listaProducto = new ArrayList<>();
