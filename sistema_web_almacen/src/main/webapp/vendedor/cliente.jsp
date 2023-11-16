@@ -72,12 +72,33 @@
                                         <input type="hidden" name="idCliente" value="<%=cliente.getIdCliente()%>">
                                     </form>
 
-                                    <form name="eliminar" action="/sistema_web_almacen/SvClienteEliminar" method="post">
-                                       <button type="submit" class="btn btn-danger btn-circle">
+                                    <form name="eliminarCliente" action="/sistema_web_almacen/SvClienteEliminar" method="post">
+                                        <button type="button" class="btn btn-danger btn-circle" onclick="mostrarModalCliente('<%=cliente.getIdCliente()%>')">
                                             <i class="fas fa-trash"></i>
-                                       </button>     
-                                       <input type="hidden" name="idCliente" value="<%=cliente.getIdCliente()%>">
+                                        </button>
+                                        <input type="hidden" name="idCliente" value="<%=cliente.getIdCliente()%>">
                                     </form>
+
+                                    <!-- Modal de confirmación para eliminar cliente -->
+                                    <div class="modal fade" id="logoutModalCliente_<%=cliente.getIdCliente()%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Cliente</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>¿Está seguro de que desea eliminar el cliente "<%=cliente.getDni()%>"?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                    <a class="btn btn-primary" href="#" onclick="eliminarCliente('<%=cliente.getIdCliente()%>')">Eliminar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <%      }   
@@ -95,4 +116,25 @@
 </div>
 <!-- End of Main Content -->
     
+<script>
+    function mostrarModalCliente(idCliente) {
+        // Muestra el modal correspondiente al botón de eliminar cliente
+        $('#logoutModalCliente_' + idCliente).modal('show');
+
+        // Si el usuario confirma la eliminación, envía la solicitud al servidor
+        $('#logoutModalCliente_' + idCliente + ' .btn-primary').click(function () {
+            // Realiza la solicitud de eliminación al servidor usando AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/sistema_web_almacen/SvClienteEliminar',
+                data: { idCliente: idCliente },
+                success: function (data) {
+                    // Puedes realizar acciones adicionales después de la eliminación, si es necesario
+                    // Por ejemplo, recargar la página o actualizar la lista de clientes
+                    location.reload();
+                }
+            });
+        });
+    }
+</script>
 <%@include file="componentes/bodyFinal.jsp" %>

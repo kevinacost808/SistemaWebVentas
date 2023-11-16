@@ -27,7 +27,7 @@
                             </div>
                             <div class="card-body">
                                 
-                                <div class="form-group">
+                                <div class="form-group" hidden>
                                     <label for="codigoProducto">Codigo del Producto</label>
                                     <input type="text" class="form-control" id="codigoProducto" name="codigoProducto" value="<%=producto.getCodigoProducto()%>" required>
                                 </div>
