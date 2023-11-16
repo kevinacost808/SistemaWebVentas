@@ -31,8 +31,14 @@ public class SvUsuarioEditar extends HttpServlet {
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("usuarioEditar",usuarioEditar);
-        
-        response.sendRedirect("gerencia/usuarioFrmE.jsp");
+        int idRol = (int) sesion.getAttribute("idRol");
+        if(idRol==1){
+            response.sendRedirect("administrador/usuarioFrmE.jsp");
+        }else if(idRol==4){
+            response.sendRedirect("gerencia/usuarioFrmE.jsp");
+        }else{
+            response.sendRedirect("404.jsp");
+        }
     }
 
     @Override

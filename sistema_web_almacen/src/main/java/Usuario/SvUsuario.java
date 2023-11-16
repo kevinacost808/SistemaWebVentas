@@ -67,7 +67,15 @@ public class SvUsuario extends HttpServlet {
         }
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaUsuario", listaUsuario);
-        response.sendRedirect("gerencia/usuario.jsp");
+        
+        int idRol = (int) sesion.getAttribute("idRol");
+        if(idRol==1){
+            response.sendRedirect("administrador/usuario.jsp");
+        }else if(idRol==4){
+            response.sendRedirect("gerencia/usuario.jsp");
+        }else{
+            response.sendRedirect("404.jsp");
+        }
     }
 
     @Override

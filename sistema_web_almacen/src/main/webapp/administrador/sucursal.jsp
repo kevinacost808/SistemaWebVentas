@@ -55,6 +55,12 @@
                               </ul>
                             </div>
                             <div class="p-4">
+                                <div class="mt-2"> 
+                                <form name="editar" action="/sistema_web_almacen/SvSucursalUsuario" method="post">
+                                    <button type="submit" class="btn btn-outline-info">USUARIOS</button>     
+                                    <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
+                                </form>
+                                </div>
                                 <div class="mt-4"> 
                                 <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
                                     <button type="submit" class="btn btn-outline-secondary">ACTUALIZAR</button>     
