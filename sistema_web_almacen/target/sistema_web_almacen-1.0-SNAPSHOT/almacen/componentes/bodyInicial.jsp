@@ -34,13 +34,6 @@
                 Paginas
             </div>
 
-            <!-- Nav Item - Sucursales -->
-            <li class="nav-item">
-                <a class="nav-link" href="sucursales.jsp">
-                    <i class="fas fa-fw fa-building"></i>
-                    <span>Sucursales</span></a>
-            </li>
-
             <!-- Nav Item - Almacen General -->
             <li class="nav-item">
                 <a class="nav-link" href="almacenGeneral.jsp">
@@ -57,7 +50,7 @@
 
             <!-- Nav Item - Productos -->
             <li class="nav-item">
-                <a class="nav-link" href="productos.jsp">
+                <a class="nav-link" href="/sistema_web_almacen/SvProducto">
                     <i class="fas fa-fw fa-shopping-cart"></i>
                     <span>Productos</span></a>
             </li>

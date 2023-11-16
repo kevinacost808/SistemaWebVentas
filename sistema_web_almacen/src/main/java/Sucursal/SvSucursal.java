@@ -64,7 +64,16 @@ public class SvSucursal extends HttpServlet {
         }
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaSucursal", listaSucursal);
-        response.sendRedirect("gerencia/sucursal.jsp");
+        
+        int idRol = (int) sesion.getAttribute("idRol");
+        if(idRol==1){
+            response.sendRedirect("administrador/sucursal.jsp");
+        }else if(idRol==4){
+            response.sendRedirect("gerencia/sucursal.jsp");
+        }else{
+            response.sendRedirect("404.jsp");
+        }
+        
     }
 
     @Override

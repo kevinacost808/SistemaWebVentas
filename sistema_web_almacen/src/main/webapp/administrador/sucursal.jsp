@@ -43,7 +43,7 @@
                             for(Sucursal sucursal: listaSucursal){
                         
                     %>
-                    <div class="col-sm-6 mb-3 ">
+                    <div class="col-12 col-ms-8 mb-3">
                         <div class="card">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
@@ -58,13 +58,13 @@
                                 <div class="mt-4"> 
                                 <form name="editar" action="/sistema_web_almacen/SvSucursalEditar" method="get">
                                     <button type="submit" class="btn btn-outline-secondary">ACTUALIZAR</button>     
-                                    <input type="hidden" name="idEmpresa" value="<%=sucursal.getIdSucursal()%>">
+                                    <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
                                 </form>
                                 </div>
                                 <div class="mt-4"> 
                                 <form name="eliminar" action="/sistema_web_almacen/SvSucursalEliminar" method="post">
                                     <button type="submit" class="btn btn-outline-info">HABILITAR</button>     
-                                   <input type="hidden" name="idEmpresa" value="<%=sucursal.getIdSucursal()%>">
+                                   <input type="hidden" name="idSucursal" value="<%=sucursal.getIdSucursal()%>">
                                 </form>
                                 </div>
                             </div>

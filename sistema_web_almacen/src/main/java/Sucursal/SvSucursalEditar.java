@@ -29,8 +29,14 @@ public class SvSucursalEditar extends HttpServlet {
         
         HttpSession sesion = request.getSession();
         sesion.setAttribute("SucursalEditar",SucursalEditar);
-        
-        response.sendRedirect("gerencia/sucursalFrmE.jsp");
+        int idRol = (int) sesion.getAttribute("idRol");
+        if(idRol==1){
+            response.sendRedirect("administrador/sucursalFrmE.jsp");
+        }else if(idRol==4){
+            response.sendRedirect("gerencia/sucursalFrmE.jsp");
+        }else{
+            response.sendRedirect("404.jsp");
+        }
     }
 
     @Override
