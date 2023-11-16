@@ -52,6 +52,9 @@ public class SvProducto extends HttpServlet {
         
         List<Producto> listaProducto = new ArrayList<>();
         
+        HttpSession sesion = request.getSession();
+        int idRol = (int) sesion.getAttribute("idRol");
+        
         if (producto != null) {
             // Itera a través de la lista para encontrar el elemento deseado
             for (Producto p : producto) {    
@@ -62,10 +65,16 @@ public class SvProducto extends HttpServlet {
             }
         }
         
-        HttpSession sesion = request.getSession();
+        
         sesion.setAttribute("listaProducto",listaProducto);
         
-        response.sendRedirect("vendedor/producto.jsp");
+        if(idRol==2){
+            response.sendRedirect("almacen/producto.jsp");
+        }else if(idRol==3){
+            response.sendRedirect("vendedor/producto.jsp");
+        }else{
+            response.sendRedirect("404.jsp");
+        }
     }
 
     @Override

@@ -49,18 +49,19 @@
                                 response.sendRedirect("/sistema_web_almacen/SvRol");
                             }else{
                                 for(Rol rol: listaRol){
+                                    if(rol.getIdRol()!=4){
                             %>
                             <tr>
                                 <td name="nombreRol"><%=rol.getNombreRol()%></td>
                                 <td>
-                                        <form name="editar" action="/sistema_web_almacen/SvRolEditar" method="get">
+                                        <form hidden name="editar" action="/sistema_web_almacen/SvRolEditar" method="get">
                                             <button type="submit" class="btn btn-info btn-circle">
                                                 <i class="fas fa-info-circle"></i>
                                             </button>     
                                             <input type="hidden" name="idRol" value="<%=rol.getIdRol()%>">
                                         </form>
 
-                                        <form name="eliminar" action="/sistema_web_almacen/SvRolEliminar" method="post">
+                                       <form hidden name="eliminar" action="/sistema_web_almacen/SvRolEliminar" method="post">
                                             <button type="submit" class="btn btn-danger btn-circle">
                                                 <i class="fas fa-trash"></i>
                                             </button>     
@@ -69,7 +70,7 @@
                                 </td>
                             </tr>
                             <%
-                                }}
+                                }}}
                             %>
                         </tbody>
                     </table>

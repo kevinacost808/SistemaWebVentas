@@ -53,9 +53,10 @@
                                                 request.getSession().setAttribute("listaRol", listaRol);
                                             }
                                             for(Rol rol : listaRol ){
+                                                if(rol.getIdRol()!=4){
                                         %>
                                             <option value="<%=rol.getIdRol()%>"><%=rol.getNombreRol()%></option>
-                                        <%  }%>
+                                        <%  }}%>
                                     </select>
                                 </div>
                                     

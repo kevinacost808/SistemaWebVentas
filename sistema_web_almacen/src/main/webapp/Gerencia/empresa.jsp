@@ -33,6 +33,8 @@
                             response.sendRedirect("/sistema_web_almacen/SvEmpresa");
                         }else{
                             for(Empresa empresa: listaEmpresa){
+                                if(empresa.getIdEmpresa()!=16){
+                                
                         
                     %>
                     <div class="col-12 col-ms-8 mb-3">
@@ -77,7 +79,7 @@
                             
                         </div>
                     </div> 
-                    <%  }}%>
+                    <%  }}}%>
                 </div>
             </div>
             <br>

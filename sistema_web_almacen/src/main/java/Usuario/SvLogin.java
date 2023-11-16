@@ -58,6 +58,10 @@ public class SvLogin extends HttpServlet {
                         response.sendRedirect("vendedor/index.jsp");
                         usuarioValido = true; // Usuario válido encontrado
                         break;
+                    case "GERENTE":
+                        response.sendRedirect("gerencia/index.jsp");
+                        usuarioValido = true; // Usuario válido encontrado
+                        break;
                     default:
                         response.sendRedirect("login.jsp");
                         break;
