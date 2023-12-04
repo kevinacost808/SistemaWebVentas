@@ -55,7 +55,7 @@ public class SvLogin extends HttpServlet {
                         usuarioValido = true; // Usuario válido encontrado
                         break;
                     case "VENDEDOR":
-                        response.sendRedirect("vendedor/index.jsp");
+                        response.sendRedirect("vendedor/producto.jsp");
                         usuarioValido = true; // Usuario válido encontrado
                         break;
                     case "GERENTE":

@@ -1,94 +1,94 @@
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\SvRol.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\EmpresaC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\SvVentaEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\SvPagoEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\SvUsuarioEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SvSucursalEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedorEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\SvRolEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\Pago.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\ProveedorJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\ProveedorC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\SvSucursalUsuario.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\SvVentaEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Excepcion\PreexistingEntityException.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\EmpresaJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\SvProducto.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\Categoria.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\SvComprobante.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\Empresa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\ProductoC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\RolJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\CategoriaC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\SvProductoEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\SvCliente.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\SvComprobanteEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SucursalC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\SvVenta.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\VentaC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\SvUsuarioEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\Proveedor.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\VentaJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\ComprobanteJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SucursalJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\SvRolEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\SvProveedor.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedorEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\SvClienteEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\Venta.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\SvEmpresaEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\SvProveedorRuc.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\SvCategoriaEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SvSucursalEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\CategoriaJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\SvEmpresa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\ComprobanteJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\PagoC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\SvClienteDni.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\Usuario.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\ClienteJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Excepcion\IllegalOrphanException.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\UsuarioC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\UsuarioJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\SvClienteBuscar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\ClienteJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\PagoJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\ClienteC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SvEmpresaSucursal.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SvSucursal.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\UsuarioJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\CategoriaJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedor.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\SvCategoria.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\Rol.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\Producto.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\RolJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\SucursalJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\SvClienteEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\SvComprobanteEliminar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\EmpresaJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\ProductoJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Rol\RolC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Empresa\SvEmpresaEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\SvPago.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Venta\VentaJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\SvPagoEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\SvProductoBuscar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Cliente\Cliente.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Pago\PagoJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\Comprobante.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedor.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\ProductoJpa.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\SvLogin.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Excepcion\NonexistentEntityException.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Sucursal\Sucursal.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Usuario\SvUsuario.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Proveedor\ProveedorJpaController.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Comprobante\ComprobanteC.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Categoria\SvCategoriaEditar.java
-C:\Users\USER\Desktop\SistemaWebVentas-master\sistema_web_almacen\src\main\java\Producto\SvProductoEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteBuscar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\SvRolEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\VentaJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvCliente.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\PagoJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SvSucursalEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\VentaJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\SvComprobanteEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\SvPagoEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\CategoriaJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\Producto.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\PagoC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvUsuarioEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\SvComprobanteEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\EmpresaJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\CategoriaC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\CategoriaJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\SvProducto.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedorEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\RolJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\ProductoC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SucursalC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Excepcion\NonexistentEntityException.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\SvRol.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\Venta.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Excepcion\PreexistingEntityException.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedorRuc.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\SvRolEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\Empresa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedor.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\EmpresaC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\ProductoJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\SvComprobante.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\ProveedorC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\SvCategoriaEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\SvCategoria.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedorEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvUsuarioEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\SvEmpresaEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\Proveedor.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\SvVenta.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\VentaC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\Categoria.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\RolJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\SvVentaEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SucursalJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\ComprobanteJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvSucursalUsuario.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\Usuario.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\UsuarioC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\SvProductoEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\ProveedorJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SvSucursal.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\EmpresaJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\SvProductoEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\SvPagoEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\SvClienteDni.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedorJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\SvPedidoProveedorEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\PagoJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvLogin.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\Comprobante.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\ProductoJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Usuario\SvUsuario.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\ClienteJpa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\PedidoProveedor\PedidoProveedor.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\Rol.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Cliente\Cliente.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\Pago.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Rol\RolC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SucursalJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Categoria\SvCategoriaEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SvSucursalEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Producto\SvProductoBuscar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\SvEmpresaSucursal.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\SvProveedor.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\SvEmpresaEditar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Proveedor\ProveedorJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\ComprobanteC.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Empresa\SvEmpresa.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Pago\SvPago.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Venta\SvVentaEliminar.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Comprobante\ComprobanteJpaController.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Excepcion\IllegalOrphanException.java
+C:\Users\kevin\Documents\6TO CICLO\SISTEMA_WEB_PROYECTO\sistema_web_almacen\src\main\java\Sucursal\Sucursal.java
