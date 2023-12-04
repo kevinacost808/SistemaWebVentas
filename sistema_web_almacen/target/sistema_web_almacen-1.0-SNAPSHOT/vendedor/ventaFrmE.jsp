@@ -10,12 +10,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
+ 
+    
+   
 <%@include file="componentes/header.jsp" %>
 <%@include file="componentes/bodyInicial.jsp" %>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Begin Page Content -->
+
+
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -30,7 +34,7 @@
             int idEmpresa = (int)request.getSession().getAttribute("idEmpresa");
         %>
 
-        <form action="/sistema_web_almacen/SvClienteBuscar" method="post">
+        <form id="formCliente" action="/sistema_web_almacen/SvClienteBuscar" method="post">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Formulario Cliente</h6>
             </div>
@@ -46,7 +50,7 @@
             </div>
         </form>
                     
-        <form action="/sistema_web_almacen/SvProductoBuscar" method="post">
+        <form id="formProducto" action="/sistema_web_almacen/SvProductoBuscar" method="post">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Formulario Producto</h6>
             </div>
@@ -62,12 +66,12 @@
             </div>
         </form>
 
-        <form action="/sistema_web_almacen/SvVentaEditar" method="post">
+          <form id="formVenta" action="/sistema_web_almacen/SvVentaEditar" method="post">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Formulario de Venta</h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="card-red">
                     <div class="form-group" hidden>
                         <label for="idVenta">Id Venta</label>
                         <input type="text" class="form-control" id="idVenta" name="idVenta" value="<%=venta.getIdVenta()%>" required readonly>
@@ -89,10 +93,7 @@
                         <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" value="<%=venta.getProducto().getNombreProducto()%>" required readonly>
                     </div>
 
-                    <div class="form-group">
-                        <label for="precioCompra">Precio de Compra</label>
-                        <input type="text" class="form-control" id="precioCompra" name="precioCompra" value="<%=venta.getProducto().getPrecioCompra()%>" required readonly>
-                    </div>
+                    
 
                     <div class="form-group">
                         <label for="precioVenta">Precio de Venta</label>
@@ -109,7 +110,7 @@
                         }
                     %>
                     
-                    <div class="form-group">
+                    <div class="form-group" id="estadoprod">
                         <label for="estado">Estado Producto</label>
                         <input type="text" class="form-control" id="estado" name="estado" value="<%=estadoo%>" required readonly>
                     </div>
@@ -158,7 +159,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" >
                         <button type="reset" class="btn btn-warning btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -166,11 +167,11 @@
                             <span class="text">Limpiar</span>
                         </button>
 
-                        <button type="submit" class="btn btn-success btn-icon-split">
+                        <button onclick="generarPDF()"  type="submit" class="btn btn-success btn-icon-split" >
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
-                            <span class="text">GUARDAR</span>
+                            <span  class="text">GUARDAR</span>
                         </button>
                     </div>
                 </div>
@@ -183,3 +184,55 @@
 </div>
             <!-- End of Main Content -->
 <%@include file="componentes/bodyFinal.jsp" %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.js"></script>
+
+<!-- Script para generar PDF con html2pdf -->
+<script>
+    function generarPDF() {
+    var element = document.getElementById("card-red"); // Obtén el elemento que deseas convertir a PDF
+
+    // Crea un elemento de título y añádelo al inicio del contenido
+    var titulo = document.createElement("h1");
+    titulo.textContent = "COMPROBANTE";
+    element.prepend(titulo);
+    
+    // Cambia el color del texto a negro
+    element.style.color = "black";
+    // Opciones para html2pdf
+    var options = {
+        margin: 10, // Márgenes del PDF en píxeles
+        filename: 'comprobante.pdf', // Nombre del archivo PDF
+        image: { type: 'jpeg', quality: 0.98 }, // Tipo y calidad de la imagen (si hay imágenes en la página)
+        html2canvas: { scale: 2 }, // Escala para la conversión de HTML a lienzo
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // Configuración específica de jsPDF
+    };
+    
+    var filaOcultar = document.getElementById("estadoprod");
+       
+        if (filaOcultar) {
+            filaOcultar.style.visibility = 'hidden';
+        }
+   
+
+    var botones = element.querySelectorAll("button");
+
+    // Oculta temporalmente los botones
+    botones.forEach(function (boton) {
+        boton.style.visibility = 'hidden';
+    });
+
+    // Llama a html2pdf con el elemento y opciones
+    html2pdf().from(element).set(options).toPdf().save().then(function() {
+        // Restaura la visibilidad de los botones después de generar el PDF
+        botones.forEach(function (boton) {
+            boton.style.visibility = 'visible';
+        });
+        
+         if (filaOcultar) {
+                filaOcultar.style.visibility = 'visible';
+            }
+    });
+    
+}
+</script>

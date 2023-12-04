@@ -65,7 +65,7 @@
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Formulario de Venta</h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="card3">
                     
                     <div class="form-group">
                         <label for="dni">Nombre Cliente</label>
@@ -83,7 +83,7 @@
                         <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" value="<%=request.getSession().getAttribute("nombreProducto")!=null?request.getSession().getAttribute("nombreProducto"):""%>" required readonly>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="preciocom">
                         <label for="precioCompra">Precio de Compra</label>
                         <input type="text" class="form-control" id="precioCompra" name="precioCompra" value="<%=request.getSession().getAttribute("precioCompra")!=null?request.getSession().getAttribute("precioCompra"):""%>" required readonly>
                     </div>
@@ -103,7 +103,7 @@
                         }
                     %>
                     
-                    <div class="form-group">
+                    <div class="form-group" id="estadoprod">
                         <label for="estado">Estado Producto</label>
                         <input type="text" class="form-control" id="estado" name="estado" value="<%=estadoo!=null?estadoo:""%>" required readonly>
                     </div>
@@ -153,14 +153,15 @@
                     </div>
 
                     <div class="form-group">
+                        
                         <button type="reset" class="btn btn-warning btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                            <span class="text">Limpiar</span>
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                        <span class="text">Limpiar</span>
                         </button>
 
-                        <button type="submit" class="btn btn-success btn-icon-split">
+                        <button onclick="generarPDF()" type="submit" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-check"></i>
                             </span>
@@ -177,3 +178,61 @@
 </div>
             <!-- End of Main Content -->
 <%@include file="componentes/bodyFinal.jsp" %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.js"></script>
+
+<!-- Script para generar PDF con html2pdf -->
+<script>
+    function generarPDF() {
+        var element = document.getElementById("card3"); // Obtén el elemento que deseas convertir a PDF
+
+        // Crea un elemento de título y añádelo al inicio del contenido
+        var titulo = document.createElement("h1");
+        titulo.textContent = "COMPROBANTE";
+        element.prepend(titulo);
+
+        // Cambia el color del texto a negro
+        element.style.color = "black";
+
+        // Opciones para html2pdf
+        var options = {
+            margin: 10, // Márgenes del PDF en píxeles
+            filename: 'comprobante.pdf', // Nombre del archivo PDF
+            html2canvas: { scale: 2 }, // Escala para la conversión de HTML a lienzo
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // Configuración específica de jsPDF
+        };
+
+        var filaOcultar = document.getElementById("preciocom");
+        var filaOcultar1 = document.getElementById("estadoprod");
+       
+        if (filaOcultar) {
+            filaOcultar.style.visibility = 'hidden';
+        }
+        if (filaOcultar1) {
+            filaOcultar1.style.visibility = 'hidden';
+        }
+
+        var botones = element.querySelectorAll("button");
+
+        // Oculta temporalmente los botones
+        botones.forEach(function (boton) {
+            boton.style.visibility = 'hidden';
+        });
+
+        // Llama a html2pdf con el elemento y opciones
+        html2pdf().from(element).set(options).toPdf().save().then(function () {
+            // Restaura la visibilidad de los botones después de generar el PDF
+            botones.forEach(function (boton) {
+                boton.style.visibility = 'visible';
+            });
+
+            // Restaura la visibilidad de la fila oculta
+            if (filaOcultar) {
+                filaOcultar.style.visibility = 'visible';
+            }
+            if (filaOcultar1) {
+                filaOcultar1.style.visibility = 'visible';
+            }
+        });
+    }
+</script>
